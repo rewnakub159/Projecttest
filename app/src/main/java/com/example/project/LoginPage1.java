@@ -34,7 +34,7 @@ public class LoginPage1 extends AppCompatActivity {
 
         final DatabaseReference dblogin = FirebaseDatabase.getInstance().getReference("user");
         b1.setOnClickListener(new View.OnClickListener() {
-            @Override
+                @Override
             public void onClick(View v) {
                 EditText e1 = (EditText)findViewById(R.id.editText1);
                 EditText e2 = (EditText)findViewById(R.id.editText2);
@@ -50,7 +50,7 @@ public class LoginPage1 extends AppCompatActivity {
                                 Register_db login = dataSnapshot.child(username).getValue(Register_db.class);
                                 if (login.getPassword().equals(password)){
                                     Toast.makeText(LoginPage1.this,"Success Login",Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(LoginPage1.this,home.class);
+                                    Intent i = new Intent(LoginPage1.this,Menu_beta.class);
                                     i.putExtra("username",e1.getText().toString());
                                       startActivity(i);
                                 }else{

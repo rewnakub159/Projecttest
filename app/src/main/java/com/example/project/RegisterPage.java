@@ -23,7 +23,7 @@ public class RegisterPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
-        EditText e1 = (EditText)findViewById(R.id.editText);
+        EditText e1 = (EditText)findViewById(R.id.et1);
         EditText e2 = (EditText)findViewById(R.id.editText2);
         EditText e3 = (EditText)findViewById(R.id.editText3);
         EditText e4 = (EditText)findViewById(R.id.editText4);
@@ -46,7 +46,7 @@ public class RegisterPage extends AppCompatActivity {
  bt1.setOnClickListener(new View.OnClickListener() {
      @Override
      public void onClick(View v) {
-         EditText e1 = (EditText)findViewById(R.id.editText);
+         EditText e1 = (EditText)findViewById(R.id.et1);
          EditText e2 = (EditText)findViewById(R.id.editText2);
          EditText e3 = (EditText)findViewById(R.id.editText3);
          EditText e4 = (EditText)findViewById(R.id.editText4);
@@ -77,7 +77,7 @@ public class RegisterPage extends AppCompatActivity {
 
 
     public void register1(){
-        EditText e1 = (EditText)findViewById(R.id.editText);
+        EditText e1 = (EditText)findViewById(R.id.et1);
         EditText e2 = (EditText)findViewById(R.id.editText2);
         EditText e3 = (EditText)findViewById(R.id.editText3);
         EditText e4 = (EditText)findViewById(R.id.editText4);
