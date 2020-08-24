@@ -89,7 +89,7 @@ public class RegisterPage extends AppCompatActivity {
 
 if (!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(password)&&!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(password)==!TextUtils.isEmpty(password2)) {
     DatabaseReference dbregister = FirebaseDatabase.getInstance().getReference("user") ;
-    Register_db register1 = new Register_db(username,password,email);
+    Register_DB register1 = new Register_DB(username,password,email);
     dbregister.child(username).setValue(register1); //set name part
     Toast.makeText(this,"0000",Toast.LENGTH_LONG).show();
     finish(); }

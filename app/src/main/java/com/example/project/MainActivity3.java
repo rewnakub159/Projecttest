@@ -45,7 +45,7 @@ public class MainActivity3 extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                    reference.child("No1").child("amount_of_food").setValue(editText.getText().toString());
-                   reference.child("No1").child("status").setValue(1);
+                   reference.child("No1").child("status").setValue("1");
 
 
            }

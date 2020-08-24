@@ -2,7 +2,9 @@ package com.example.project;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecyclerView_Config {
+public class Pet_RecycleView_Config {
     private Context mContext;
     private  BooksAdapter mBookAdapter;
-    public void setConfig(RecyclerView recyclerView, Context context, List<Register_DB> books, List<String> keys){
+    public void setConfig(RecyclerView recyclerView, Context context, List<Pet_DB> books, List<String> keys){
         mContext = context;
         mBookAdapter = new BooksAdapter(books,keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -34,18 +36,20 @@ public class RecyclerView_Config {
             mPass = (TextView)itemView.findViewById(R.id.tvpass);
             mEmail = (TextView)itemView.findViewById(R.id.tvemail);
         }
-        public void bind(Register_DB book , String key){
-            mName.setText(book.getUsername());
-            mPass.setText(book.getPassword());
-            mEmail.setText(book.getEmail());
+        public  void bind(Pet_DB book , String key){
+            mName.setText(book.getName());
+            mPass.setText(book.getAge());
+            mEmail.setText(book.getType());
             this.key = key;
+
         }
     }
+
     class BooksAdapter extends RecyclerView.Adapter<BookItemView>{
-        private List<Register_DB>mBookList;
+        private List<Pet_DB>mBookList;
         private List<String> mKeys;
 
-        public BooksAdapter(List<Register_DB> mBookList, List<String> mKeys) {
+        public BooksAdapter(List<Pet_DB> mBookList, List<String> mKeys) {
             this.mBookList = mBookList;
             this.mKeys = mKeys;
         }

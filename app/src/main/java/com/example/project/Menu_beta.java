@@ -9,16 +9,20 @@ import android.widget.Button;
 
 public class Menu_beta extends AppCompatActivity {
 
-    private Button bt1,bt2,bt3;
+    private Button bt1,bt2,bt3,bt4,bt5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_beta);
-
+        LoginPage1 loginPage1;
         bt1 = (Button)findViewById(R.id.menu_bt1);
         bt2 = (Button)findViewById(R.id.menu_bt2);
         bt3 = (Button)findViewById(R.id.menu_bt3);
-
+        bt4 = (Button)findViewById(R.id.menu_bt4);
+        bt5 = (Button)findViewById(R.id.menu_bt5);
+        final String name;
+        Intent intentName = getIntent();
+        name = intentName.getStringExtra("username");
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,7 +38,32 @@ public class Menu_beta extends AppCompatActivity {
 
             }
         });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Pet_Re1.class);
+                startActivity(i);
+
+            }
+        });
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), SelectMac_Re1.class);
+                startActivity(i);
+
+            }
+        });
+        bt5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), SetTime_Re1.class);
+                startActivity(i);
+            }
+        });
 
 
     }
+
+
 }

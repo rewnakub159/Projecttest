@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pet_addPet">
+
+    <Button
+        android:id="@+id/pet_add_bt1"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="133dp"
+        android:layout_height="41dp"
+        android:background="@drawable/button"
+        android:bottomLeftRadius="10dp"
+        android:fontFamily="@font/russo_one"
+        android:padding="0dip"
+        android:shadowColor="#202020"
+        android:text="SAVE"
+        android:textColor="#FFF"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/pet_add_bt2"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="608dp" />
+
+    <Button
+        android:id="@+id/pet_add_bt2"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="133dp"
+        android:layout_height="41dp"
+        android:background="@drawable/button"
+        android:bottomLeftRadius="10dp"
+        android:fontFamily="@font/russo_one"
+        android:padding="0dip"
+        android:shadowColor="#202020"
+        android:text="BACK"
+        android:textColor="#FFF"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="608dp" />
+
+    <EditText
+        android:id="@+id/petAdd_weigth_et4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="40dp"
+        android:background="@drawable/register_edittext"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petAdd_age_et3" />
+
+    <EditText
+        android:id="@+id/petAdd_age_et3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="40dp"
+        android:background="@drawable/register_edittext"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petAdd_breed_et2" />
+
+    <EditText
+        android:id="@+id/petAdd_breed_et2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="40dp"
+        android:background="@drawable/register_edittext"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petAdd_name_et1" />
+
+    <EditText
+        android:id="@+id/petAdd_name_et1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+
+
+        android:background="@drawable/register_edittext"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

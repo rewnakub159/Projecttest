@@ -11,40 +11,36 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity {
-
-
+public class Pet_Re1 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_machine_re1);
+        mRecyclerView = (RecyclerView)findViewById(R.id.macRecycler);
+       new Pet_Firebase().readBooks(new Pet_Firebase.DataStatus() {
+           @Override
+           public void DataIsLoaded(List<Pet_DB> i, List<String> k) {
+               new Pet_RecycleView_Config().setConfig(mRecyclerView, Pet_Re1.this,i,k);
+           }
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerview_books);
-        new FirebaseDatabaseHelper().readBooks(new FirebaseDatabaseHelper.DataStatus() {
-            @Override
-            public void DataIsLoaded(List<Register_DB> books, List<String> keys) {
-                new RecyclerView_Config().setConfig(mRecyclerView,MainActivity2.this,books,keys);
+           @Override
+           public void DataIsInserted() {
 
-            }
+           }
 
-            @Override
-            public void DataIsserted() {
+           @Override
+           public void DataIsUpdated() {
 
-            }
+           }
 
-            @Override
-            public void DataIsUpdated() {
+           @Override
+           public void DataIsDeleted() {
 
-            }
+           }
 
-            @Override
-            public void DataIsDeleted() {
-
-            }
-        });
-
-
+       });
     }
 
     @Override
@@ -57,9 +53,10 @@ public class MainActivity2 extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) { //Menu Action
         switch (item.getItemId()){
             case R.id.addUser:
-                startActivity(new Intent(this,RegisterPage.class));
+                startActivity(new Intent(this,Pet_addPet.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 }
+

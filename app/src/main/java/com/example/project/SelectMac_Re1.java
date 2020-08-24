@@ -7,23 +7,22 @@ import android.os.Bundle;
 
 import java.util.List;
 
-public class Machine_re extends AppCompatActivity {
-
-    private RecyclerView macRecyclerView;
+public class SelectMac_Re1 extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_machine_re);
-        macRecyclerView = (RecyclerView)findViewById(R.id.macre1);
-        new FirebaseMac().readBooks(new FirebaseMac.DataStatus() {
+        setContentView(R.layout.activity_select_mac__re1);
+        mRecyclerView = (RecyclerView) findViewById(R.id.selectmac_recyclerview);
+        new SelectMac_Firebase().readBooks(new SelectMac_Firebase.DataStatus() {
             @Override
-            public void DataIsLoaded(List<Machine_db> machine_dbs, List<String> keys) {
-                new MacReConfig().setConfig(macRecyclerView,Machine_re.this,machine_dbs,keys);
+            public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
+                new SelectMac_ReCon().setConfig(mRecyclerView, SelectMac_Re1.this,books,keys);
             }
 
             @Override
-            public void DataIsserted() {
+            public void DataIsInserted() {
 
             }
 
@@ -38,4 +37,6 @@ public class Machine_re extends AppCompatActivity {
             }
         });
     }
-}
+
+    }
+

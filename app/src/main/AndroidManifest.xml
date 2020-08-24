@@ -9,9 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewBookActivity"></activity>
-        <activity android:name=".Menu_beta" />
-        <activity android:name=".Machine_re" />
+        <activity android:name=".AddSetTime"></activity>
+        <activity android:name=".SetTime_Re1" />
+        <activity android:name=".SelectMac_Re1" />
+        <activity
+            android:name=".Pet_addPet"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Pet_Re1" />
+        <activity
+            android:name=".Menu_beta"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MainActivity3" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".RecyclerView" />
@@ -21,12 +28,17 @@
             android:name=".Main"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginPage1" />
-        <activity android:name=".RegisterPage" />
+        <activity
+            android:name=".LoginPage1"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".RegisterPage"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginPage"
-            android:label=".LoginPage">
+            android:label=".LoginPage"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

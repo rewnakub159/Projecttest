@@ -17,14 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginPage1 extends AppCompatActivity {
-
+public static String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page1);
+        final Button b1 = (Button)findViewById(R.id.button1);
+        final EditText e1 = (EditText)findViewById(R.id.editText1);
 
-        Button b1 = (Button)findViewById(R.id.button1);
-    final EditText e1 = (EditText)findViewById(R.id.editText1);
     EditText e2 = (EditText)findViewById(R.id.editText2);
 
         e1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_user, 0, 0, 0);
@@ -39,7 +39,10 @@ public class LoginPage1 extends AppCompatActivity {
                 EditText e1 = (EditText)findViewById(R.id.editText1);
                 EditText e2 = (EditText)findViewById(R.id.editText2);
                 sigin(e1.getText().toString(),e2.getText().toString());
+
             }
+
+ 
 
             private void sigin (final String username,final String password){
                 dblogin.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -47,10 +50,12 @@ public class LoginPage1 extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(username).exists()){
                             if (!username.isEmpty()){
-                                Register_db login = dataSnapshot.child(username).getValue(Register_db.class);
+                                Register_DB login = dataSnapshot.child(username).getValue(Register_DB.class);
                                 if (login.getPassword().equals(password)){
                                     Toast.makeText(LoginPage1.this,"Success Login",Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(LoginPage1.this,Menu_beta.class);
+                                    String users = e1.getText().toString();
+                                    user = users;
                                     i.putExtra("username",e1.getText().toString());
                                       startActivity(i);
                                 }else{
@@ -71,4 +76,6 @@ public class LoginPage1 extends AppCompatActivity {
         });
 
     }
+
+
 }

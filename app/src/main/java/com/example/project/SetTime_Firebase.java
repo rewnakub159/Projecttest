@@ -12,31 +12,37 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirebaseDatabaseHelper {
-    private FirebaseDatabase mDatabase;
+public class SetTime_Firebase {
+      private FirebaseDatabase mDatabase;
     private DatabaseReference mReferenceBook;
-    private List<Register_DB> books = new ArrayList<>();
+    private List<SetTime_Db> books = new ArrayList<>();
+
+    LoginPage1 loginPage1 = new LoginPage1();
+    String users = loginPage1.user.toString();
+
+
 
     public interface  DataStatus {
-        void DataIsLoaded(List<Register_DB> books, List<String> keys);
-        void DataIsserted();
+        void DataIsLoaded(List<SetTime_Db> books, List<String> keys);
+        void DataIsInserted();
         void DataIsUpdated();
         void DataIsDeleted();
     }
-    public FirebaseDatabaseHelper() {
+    public SetTime_Firebase() {
+
         mDatabase = FirebaseDatabase.getInstance();
-        mReferenceBook = mDatabase.getReference("user");
+        mReferenceBook = mDatabase.getReference("time");
     }
-    public void  readBooks(final DataStatus dataStatus){
+    public void  readBooks(final SetTime_Firebase.DataStatus dataStatus){
         mReferenceBook.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 books.clear();
                 List<String> keys = new ArrayList<>();
-                for (DataSnapshot keynode :dataSnapshot.getChildren()){
-                    keys.add(keynode.getKey());
-                    Register_DB book = keynode.getValue(Register_DB.class);
-                    books.add(book);
+                for (DataSnapshot keyNode : dataSnapshot.getChildren()){
+                    keys.add(keyNode.getKey());
+                    SetTime_Db i = keyNode.getValue(SetTime_Db.class);
+                    books.add(i);
                 }
                 dataStatus.DataIsLoaded(books ,keys);          }
 
@@ -47,13 +53,14 @@ public class FirebaseDatabaseHelper {
         });
 
     }
-    public void addBook(Register_DB book, final DataStatus dataStatus){
-       String key = mReferenceBook.push().getKey();
-       mReferenceBook.child(key).setValue(book).addOnSuccessListener(new OnSuccessListener<Void>() {
-           @Override
-           public void onSuccess(Void aVoid) {
-               dataStatus.DataIsserted();
-           }
-       });
+    public void addBook(SetTime_Db book, final SetTime_Firebase.DataStatus dataStatus){
+        String d =book.getName();
+        mReferenceBook.child(d).setValue(book).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsInserted();
+            }
+        });
     }
+
 }

@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecyclerView_Config {
+public class SetTime_ReCon {
     private Context mContext;
-    private  BooksAdapter mBookAdapter;
-    public void setConfig(RecyclerView recyclerView, Context context, List<Register_DB> books, List<String> keys){
+    private SetTime_ReCon.BooksAdapter mBookAdapter;
+    public void setConfig(RecyclerView recyclerView, Context context, List<SetTime_Db> books, List<String> keys){
         mContext = context;
-        mBookAdapter = new BooksAdapter(books,keys);
+        mBookAdapter = new SetTime_ReCon.BooksAdapter(books,keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(mBookAdapter);
     }
@@ -34,30 +34,32 @@ public class RecyclerView_Config {
             mPass = (TextView)itemView.findViewById(R.id.tvpass);
             mEmail = (TextView)itemView.findViewById(R.id.tvemail);
         }
-        public void bind(Register_DB book , String key){
-            mName.setText(book.getUsername());
-            mPass.setText(book.getPassword());
-            mEmail.setText(book.getEmail());
+        public  void bind(SetTime_Db book , String key){
+            mName.setText(book.getName());
+            mPass.setText(book.getAmountfood());
+            mEmail.setText(book.getSettime());
             this.key = key;
+
         }
     }
-    class BooksAdapter extends RecyclerView.Adapter<BookItemView>{
-        private List<Register_DB>mBookList;
+
+    class BooksAdapter extends RecyclerView.Adapter<SetTime_ReCon.BookItemView>{
+        private List<SetTime_Db>mBookList;
         private List<String> mKeys;
 
-        public BooksAdapter(List<Register_DB> mBookList, List<String> mKeys) {
+        public BooksAdapter(List<SetTime_Db> mBookList, List<String> mKeys) {
             this.mBookList = mBookList;
             this.mKeys = mKeys;
         }
 
         @NonNull
         @Override
-        public BookItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new BookItemView(parent);
+        public SetTime_ReCon.BookItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new SetTime_ReCon.BookItemView(parent);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull BookItemView holder, int position) {
+        public void onBindViewHolder(@NonNull SetTime_ReCon.BookItemView holder, int position) {
             holder.bind(mBookList.get(position),mKeys.get(position));
         }
 
