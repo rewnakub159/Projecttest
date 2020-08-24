@@ -38,14 +38,14 @@ public class MainActivity3 extends AppCompatActivity {
 
         Button button = (Button)findViewById(R.id.bt1);
         Button button1 = (Button)findViewById(R.id.bt2);
-        reference=FirebaseDatabase.getInstance().getReference("machine").child("fd001");
+        reference=FirebaseDatabase.getInstance().getReference("machine").child("1");
 
        button.setOnClickListener(new View.OnClickListener() {
         final String food = editText.getText().toString().trim();
            @Override
            public void onClick(View v) {
-                   reference.child("No1").child("volume").setValue(editText.getText().toString());
-                   reference.child("No1").child("status").setValue("1");
+                   reference.child("fd001").child("volume").setValue(editText.getText().toString());
+                   reference.child("fd001").child("status").setValue("1");
 
 
            }
