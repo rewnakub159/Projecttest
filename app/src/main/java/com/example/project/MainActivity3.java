@@ -38,7 +38,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         Button button = (Button)findViewById(R.id.bt1);
         Button button1 = (Button)findViewById(R.id.bt2);
-        reference=FirebaseDatabase.getInstance().getReference("machine").child("1");
+        reference=FirebaseDatabase.getInstance().getReference("machine");
 
        button.setOnClickListener(new View.OnClickListener() {
         final String food = editText.getText().toString().trim();
