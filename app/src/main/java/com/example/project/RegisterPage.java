@@ -54,7 +54,7 @@ public class RegisterPage extends AppCompatActivity {
          final String password = e2.getText().toString().trim();
          final  String password2 = e3.getText().toString().trim();
          final String email = e4.getText().toString().trim();
-         Query query = FirebaseDatabase.getInstance().getReference().child("user").orderByChild("username").equalTo(userName);;
+         Query query = FirebaseDatabase.getInstance().getReference().child("user").orderByChild("username").equalTo(userName);
          query.addListenerForSingleValueEvent(new ValueEventListener() {
              @Override
              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
