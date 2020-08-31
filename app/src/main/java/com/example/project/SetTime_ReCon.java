@@ -1,7 +1,9 @@
 package com.example.project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -33,6 +35,13 @@ public class SetTime_ReCon {
             mName = (TextView)itemView.findViewById(R.id.tvname);
             mPass = (TextView)itemView.findViewById(R.id.tvpass);
             mEmail = (TextView)itemView.findViewById(R.id.tvemail);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext,SetTime_update.class);
+                    mContext.startActivity(intent);
+                }
+            });
         }
         public  void bind(SetTime_Db book , String key){
             mName.setText(book.getName());

@@ -62,5 +62,23 @@ public class SetTime_Firebase {
             }
         });
     }
+    public void updaeBook(String key, SetTime_Db book , final DataStatus dataStatus){
+        mReferenceBook.child(key).setValue(book)
+    .addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void aVoid) {
+           dataStatus.DataIsUpdated();
+        }
+    });
+    }
+    public  void deleteBook(String key,final DataStatus dataStatus){
+        mReferenceBook.child(key).setValue(null)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        dataStatus.DataIsDeleted();
+                    }
+                });
 
+    }
 }
