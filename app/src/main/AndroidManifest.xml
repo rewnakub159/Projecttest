@@ -13,7 +13,8 @@
         <activity
             android:name=".Home"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".AddSetTime" />
+        <activity android:name=".AddSetTime"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".SetTime_Re1" />
         <activity android:name=".SelectMac_Re1" />
         <activity

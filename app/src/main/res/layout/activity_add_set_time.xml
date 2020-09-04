@@ -7,6 +7,18 @@
     tools:context=".AddSetTime">
 
     <View
+        android:id="@+id/view4"
+        android:layout_width="348dp"
+        android:layout_height="486dp"
+        android:background="@drawable/settime_center1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <View
         android:id="@+id/view3"
         android:layout_width="420dp"
         android:layout_height="115dp"
@@ -16,8 +28,8 @@
 
     <EditText
         android:id="@+id/addsetime_et1"
-        android:layout_width="190dp"
-        android:layout_height="34dp"
+        android:layout_width="146dp"
+        android:layout_height="31dp"
         android:background="@drawable/textview_buttomline"
         android:ems="10"
         android:inputType="numberDecimal"
@@ -30,16 +42,18 @@
         app:layout_constraintVertical_bias="0.601" />
 
     <Button
-        android:id="@+id/addsittime_bt1"
+        android:id="@+id/addsettime_bt1"
         android:layout_width="134dp"
         android:layout_height="42dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="340dp"
         android:layout_marginEnd="128dp"
         android:background="@drawable/button"
         android:text="SELECT TIME"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addsetime_et1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/addsettime_tv1"
@@ -48,30 +62,31 @@
         android:fontFamily="@font/amaranth_bold"
         android:text="TextView"
         android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/addsittime_bt1"
+        app:layout_constraintBottom_toBottomOf="@+id/addsettime_bt1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.822" />
 
     <TextView
         android:id="@+id/addsettime_tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="40dp"
         android:text="Food Freeding Amount"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/addsettime_bt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/addsettime_bt4"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/button"
         android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,6 +131,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clock_settime" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

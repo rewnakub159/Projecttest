@@ -8,7 +8,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -38,8 +37,8 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
         tv1 = (TextView)findViewById(R.id.addsettime_tv1);
         et1 = (EditText)findViewById(R.id.addsetime_et1);
-        bt1 = (Button)findViewById(R.id.addsittime_bt1);
-        bt2 = (Button)findViewById(R.id.addsettime_bt2);
+        bt1 = (Button)findViewById(R.id.addsettime_bt1);
+        bt2 = (Button)findViewById(R.id.addsettime_bt4);
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,8 +72,9 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
                     }
                 });
 
-
+                    finish();
                 }
+
         });
     }
 

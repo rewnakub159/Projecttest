@@ -25,7 +25,7 @@ public class SetTime_ReCon {
     class BookItemView extends RecyclerView.ViewHolder{
         private TextView mName;
         private TextView mPass;
-        private TextView mEmail;
+
 
         private String key;
 
@@ -34,19 +34,19 @@ public class SetTime_ReCon {
 
             mName = (TextView)itemView.findViewById(R.id.tvname);
             mPass = (TextView)itemView.findViewById(R.id.tvpass);
-            mEmail = (TextView)itemView.findViewById(R.id.tvemail);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext,SetTime_update.class);
+                    intent.putExtra("time",mName.getText().toString());
+                    intent.putExtra("amount",mPass.getText().toString());
                     mContext.startActivity(intent);
                 }
             });
         }
         public  void bind(SetTime_Db book , String key){
-            mName.setText(book.getName());
+            mName.setText(book.getSettime());
             mPass.setText(book.getAmountfood());
-            mEmail.setText(book.getSettime());
             this.key = key;
 
         }
