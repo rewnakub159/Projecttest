@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -17,12 +18,13 @@ import com.google.zxing.integration.android.IntentResult;
 public class QrCode_addmachine extends AppCompatActivity {
 
     private Button scan_button;
+    EditText et1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code_addmachine);
-
+        et1=(EditText) findViewById(R.id.addmac_et1);
         scan_button = (Button) findViewById(R.id.scan_button);
 
         final Activity activity = this;
@@ -72,9 +74,9 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
             else{
-
-                Toast.makeText(this,result.getContents(),Toast.LENGTH_LONG).show();
-
+                String qrtex = result.getContents();
+                Toast.makeText(this,result.getContents()+"55555",Toast.LENGTH_LONG).show();
+                et1.setText(qrtex);
             }
 
         }
