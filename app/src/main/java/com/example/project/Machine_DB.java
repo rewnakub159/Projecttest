@@ -4,14 +4,16 @@ public class Machine_DB {
     String name;
     String amount_of_food;
     String food_now;
+    String status;
 
     public Machine_DB() {
     }
 
-    public Machine_DB(String name, String amount_of_food, String food_now) {
+    public Machine_DB(String name, String amount_of_food, String food_now, String status) {
         this.name = name;
         this.amount_of_food = amount_of_food;
         this.food_now = food_now;
+        this.status = status;
     }
 
     public String getName() {
@@ -36,5 +38,13 @@ public class Machine_DB {
 
     public void setFood_now(String food_now) {
         this.food_now = food_now;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
