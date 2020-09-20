@@ -25,7 +25,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class QrCode_addmachine extends AppCompatActivity {
     private DatabaseReference reference;
-    private Button scan_button,bt1;
+    private Button scan_button,bt1,bt2,bt3;
     EditText et1;
     TextView tv1,tv2;
     Machine_DB machine_db;
@@ -36,9 +36,10 @@ public class QrCode_addmachine extends AppCompatActivity {
         setContentView(R.layout.activity_qr_code_addmachine);
         et1=(EditText) findViewById(R.id.addmac_et1);
         scan_button = (Button) findViewById(R.id.scan_button);
-        bt1= (Button)findViewById(R.id.addmac_bt1);
-        tv1 = (TextView)findViewById(R.id.addmac_tv1);
-        tv2 = (TextView)findViewById(R.id.addmac_tv2);
+
+        bt2=(Button)findViewById(R.id.button4);
+        bt3=(Button)findViewById(R.id.addmac_bt3) ;
+
 
         final Activity activity = this;
 
@@ -63,21 +64,43 @@ public class QrCode_addmachine extends AppCompatActivity {
             }
 
         });
-        bt1.setOnClickListener(new View.OnClickListener() {
+
+        bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String macname = et1.getText().toString();
+                String macname = et1.getText().toString();
                 Query query = FirebaseDatabase.getInstance().getReference("machine2").orderByChild("name").equalTo(macname);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getChildrenCount() == 1) {
-                            reference= FirebaseDatabase.getInstance().getReference("machine2").child(macname);
-                            Toast.makeText(QrCode_addmachine.this, "1", Toast.LENGTH_LONG).show();
-                        }else {
-                            Toast.makeText(QrCode_addmachine.this, "0", Toast.LENGTH_LONG).show();
-                        }
 
+                            String macname = et1.getText().toString();
+                            reference= FirebaseDatabase.getInstance().getReference("machine2").child(macname);
+                            reference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    String userType = (String) dataSnapshot.child("status").getValue();
+
+                                    if (userType.equals("use")) {
+                                        Toast.makeText(QrCode_addmachine.this, "Someone has already used this machine.", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        reference=FirebaseDatabase.getInstance().getReference("machine2");
+                                        reference.child("fd001").child("status").setValue("use");
+                                        Toast.makeText(QrCode_addmachine.this, "0", Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    finish();
+                                }
+                            });
+
+                        }else {
+                            Toast.makeText(QrCode_addmachine.this, "Does not have this machine", Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override
@@ -86,7 +109,12 @@ public class QrCode_addmachine extends AppCompatActivity {
                     }
                 });
 
-
+            }
+        });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
