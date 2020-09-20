@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Menu_beta extends AppCompatActivity {
 
-    private Button bt1,bt2,bt3,bt4,bt5;
+    private Button bt1,bt2,bt3,bt4,bt5,bt6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,7 @@ public class Menu_beta extends AppCompatActivity {
         bt3 = (Button)findViewById(R.id.menu_bt3);
         bt4 = (Button)findViewById(R.id.menu_bt4);
         bt5 = (Button)findViewById(R.id.menu_bt5);
+        bt6 = (Button)findViewById(R.id.menu_bt6);
         final String name;
         Intent intentName = getIntent();
         name = intentName.getStringExtra("username");
@@ -61,7 +62,13 @@ public class Menu_beta extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        bt6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), QrCode_addmachine.class);
+                startActivity(i);
+            }
+        });
 
     }
 
