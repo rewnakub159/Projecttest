@@ -24,12 +24,13 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class QrCode_addmachine extends AppCompatActivity {
-    private DatabaseReference reference;
+    private DatabaseReference reference,reference2;
     private Button scan_button,bt1,bt2,bt3;
     EditText et1;
     TextView tv1,tv2;
     Machine_DB machine_db;
-
+    LoginPage1 loginPage1 = new LoginPage1();
+    String users = loginPage1.user.toString();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +76,9 @@ public class QrCode_addmachine extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getChildrenCount() == 1) {
 
-                            String macname = et1.getText().toString();
+                            final String macname = et1.getText().toString();
                             reference= FirebaseDatabase.getInstance().getReference("machine2").child(macname);
+
                             reference.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -86,7 +88,17 @@ public class QrCode_addmachine extends AppCompatActivity {
                                         Toast.makeText(QrCode_addmachine.this, "Someone has already used this machine.", Toast.LENGTH_LONG).show();
                                     }else{
                                         reference=FirebaseDatabase.getInstance().getReference("machine2");
-                                        reference.child("fd001").child("status").setValue("use");
+                                        reference.child(macname).child("status").setValue("use");
+                                        reference.child(macname).child("username").setValue(users);
+
+                                        reference2= FirebaseDatabase.getInstance().getReference(users).child("machineprofile");
+                                        String name = et1.getText().toString().trim();
+                                        String amount_of_food = "null";
+                                        String food_now = "null";
+                                        String status = "null";
+                                        Machine_DB machine_db = new Machine_DB(name,amount_of_food,food_now,status);
+                                        reference2.child(name).setValue(machine_db);
+
                                         Toast.makeText(QrCode_addmachine.this, "0", Toast.LENGTH_LONG).show();
 
                                     }
