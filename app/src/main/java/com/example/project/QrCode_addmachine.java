@@ -91,15 +91,15 @@ public class QrCode_addmachine extends AppCompatActivity {
                                         reference.child(macname).child("status").setValue("use");
                                         reference.child(macname).child("username").setValue(users);
 
-                                        reference2= FirebaseDatabase.getInstance().getReference(users).child("machineprofile");
+                                        reference2= FirebaseDatabase.getInstance().getReference("machineprofile").child(users);
                                         String name = et1.getText().toString().trim();
-                                        String amount_of_food = "null";
-                                        String food_now = "null";
-                                        String status = "null";
-                                        Machine_DB machine_db = new Machine_DB(name,amount_of_food,food_now,status);
+                                        String volume = "null";
+                                        String volume_now = "null";
+                                        String status = "0";
+                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now);
                                         reference2.child(name).setValue(machine_db);
 
-                                        Toast.makeText(QrCode_addmachine.this, "0", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QrCode_addmachine.this, "Machine was added", Toast.LENGTH_LONG).show();
 
                                     }
                                 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QrCode_addmachine"></activity>
+        <activity android:name=".LoginPage3"></activity>
+        <activity android:name=".QrCode_addmachine" />
         <activity android:name=".SetTime_update" />
         <activity
             android:name=".Home"

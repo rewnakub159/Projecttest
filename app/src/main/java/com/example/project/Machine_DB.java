@@ -2,18 +2,18 @@ package com.example.project;
 
 public class Machine_DB {
     String name;
-    String amount_of_food;
-    String food_now;
     String status;
+    String volume;
+    String volume_now;
 
     public Machine_DB() {
     }
 
-    public Machine_DB(String name, String amount_of_food, String food_now, String status) {
+    public Machine_DB(String name, String status, String volume, String volume_now) {
         this.name = name;
-        this.amount_of_food = amount_of_food;
-        this.food_now = food_now;
         this.status = status;
+        this.volume = volume;
+        this.volume_now = volume_now;
     }
 
     public String getName() {
@@ -24,27 +24,27 @@ public class Machine_DB {
         this.name = name;
     }
 
-    public String getAmount_of_food() {
-        return amount_of_food;
-    }
-
-    public void setAmount_of_food(String amount_of_food) {
-        this.amount_of_food = amount_of_food;
-    }
-
-    public String getFood_now() {
-        return food_now;
-    }
-
-    public void setFood_now(String food_now) {
-        this.food_now = food_now;
-    }
-
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    public String getVolume_now() {
+        return volume_now;
+    }
+
+    public void setVolume_now(String volume_now) {
+        this.volume_now = volume_now;
     }
 }

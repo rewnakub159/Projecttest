@@ -3,7 +3,9 @@ package com.example.project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,8 @@ public static String user;
         final Button b1 = (Button)findViewById(R.id.button1);
         final EditText e1 = (EditText)findViewById(R.id.editText1);
 
+        final SessionManager sessionManager;
+
     EditText e2 = (EditText)findViewById(R.id.editText2);
 
         e1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_user, 0, 0, 0);
@@ -32,7 +36,10 @@ public static String user;
         e2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock1, 0, 0, 0);
         e2.setHint(" PASSWORD");
 
+
         final DatabaseReference dblogin = FirebaseDatabase.getInstance().getReference("user");
+
+        sessionManager = new SessionManager(getApplicationContext());
         b1.setOnClickListener(new View.OnClickListener() {
                 @Override
             public void onClick(View v) {
@@ -52,12 +59,17 @@ public static String user;
                             if (!username.isEmpty()){
                                 Register_DB login = dataSnapshot.child(username).getValue(Register_DB.class);
                                 if (login.getPassword().equals(password)){
+
+                                    sessionManager.setLogin(true);
+                                    sessionManager.setUsername(e1.getText().toString());
+
                                     Toast.makeText(LoginPage1.this,"Success Login",Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(LoginPage1.this,Menu_beta.class);
+                                    Intent i = new Intent(LoginPage1.this,LoginPage3.class);
                                     String users = e1.getText().toString();
                                     user = users;
                                     i.putExtra("username",e1.getText().toString());
                                       startActivity(i);
+
                                 }else{
                                     Toast.makeText(LoginPage1.this,"Password is wrong",Toast.LENGTH_SHORT).show();
                                 }
@@ -74,6 +86,9 @@ public static String user;
                 });
             }
         });
+        if (sessionManager.getLogin()){
+            startActivity(new Intent(getApplicationContext(),LoginPage3.class));
+        }
 
     }
 
