@@ -1,6 +1,7 @@
 package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 
 public class LoginPage extends AppCompatActivity {
     SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,5 +33,7 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
     }
 }
