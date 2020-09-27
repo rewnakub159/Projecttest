@@ -50,7 +50,7 @@ public class Menu_beta extends AppCompatActivity {
         bt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), SelectMac_Re1.class);
+                Intent i = new Intent(getApplicationContext(), SelectMac_setTime.class);
                 startActivity(i);
 
             }

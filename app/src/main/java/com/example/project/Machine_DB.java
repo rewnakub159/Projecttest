@@ -5,15 +5,19 @@ public class Machine_DB {
     String status;
     String volume;
     String volume_now;
+    String food_level;
+    String history;
 
     public Machine_DB() {
     }
 
-    public Machine_DB(String name, String status, String volume, String volume_now) {
+    public Machine_DB(String name, String status, String volume, String volume_now, String food_level, String history) {
         this.name = name;
         this.status = status;
         this.volume = volume;
         this.volume_now = volume_now;
+        this.food_level = food_level;
+        this.history = history;
     }
 
     public String getName() {
@@ -46,5 +50,21 @@ public class Machine_DB {
 
     public void setVolume_now(String volume_now) {
         this.volume_now = volume_now;
+    }
+
+    public String getFood_level() {
+        return food_level;
+    }
+
+    public void setFood_level(String food_level) {
+        this.food_level = food_level;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
     }
 }

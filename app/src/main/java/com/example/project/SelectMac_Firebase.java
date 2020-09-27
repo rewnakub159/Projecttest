@@ -17,8 +17,8 @@ public class SelectMac_Firebase {
     private DatabaseReference mReferenceBook;
     private List<Machine_DB> books = new ArrayList<>();
 
-    LoginPage1 loginPage1 = new LoginPage1();
-    String users = loginPage1.user.toString();
+    Home_Menu homeMenu = new Home_Menu();
+    String users = homeMenu.user.toString();
 
 
 
@@ -31,7 +31,7 @@ public class SelectMac_Firebase {
     public SelectMac_Firebase() {
 
         mDatabase = FirebaseDatabase.getInstance();
-        mReferenceBook = mDatabase.getReference("machine").child(users);
+        mReferenceBook = mDatabase.getReference("machineprofile").child(users);
     }
     public void  readBooks(final SelectMac_Firebase.DataStatus dataStatus){
         mReferenceBook.addValueEventListener(new ValueEventListener() {

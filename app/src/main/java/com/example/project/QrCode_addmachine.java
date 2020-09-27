@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Camera;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,12 +22,12 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class QrCode_addmachine extends AppCompatActivity {
-    private DatabaseReference reference,reference2;
+    private DatabaseReference reference,reference2,reference3;
     private Button scan_button,bt1,bt2,bt3;
     EditText et1;
     TextView tv1,tv2;
     Machine_DB machine_db;
-    LoginPage1 loginPage1 = new LoginPage1();
+    Home_Menu loginPage1 = new Home_Menu();
     String users = loginPage1.user.toString();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +89,21 @@ public class QrCode_addmachine extends AppCompatActivity {
                                         reference.child(macname).child("status").setValue("use");
                                         reference.child(macname).child("username").setValue(users);
 
+
+
+
                                         reference2= FirebaseDatabase.getInstance().getReference("machineprofile").child(users);
                                         String name = et1.getText().toString().trim();
                                         String volume = "null";
                                         String volume_now = "null";
+                                        String food_level = "null";
+                                        String history = "null";
                                         String status = "0";
-                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now);
+                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now,food_level,history);
                                         reference2.child(name).setValue(machine_db);
+
+                                        reference3= FirebaseDatabase.getInstance().getReference("history").child(users);
+
 
                                         Toast.makeText(QrCode_addmachine.this, "Machine was added", Toast.LENGTH_LONG).show();
 

@@ -30,6 +30,9 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int hour,minute;
     int hour_x,minute_x;
+
+    SelectMac_ReCon selectMac_reCon=new SelectMac_ReCon();
+    String macname = SelectMac_ReCon.macname.toString();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
             public void onClick(View v) {
 
                 final String time = tv1.getText().toString().trim();
-                Query query = FirebaseDatabase.getInstance().getReference("time").child("fd001").orderByChild("settime").equalTo(time);
+                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -86,10 +89,13 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
     }
     public void addtime(){
 
-
+        int s;
+        s = Integer.parseInt(et1.getText().toString());
+        if (s>= 100){
         SetTime_Db book = new SetTime_Db();
         book.setSettime(tv1.getText().toString());
         book.setName(et1.getText().toString());
+
         new SetTime_Firebase().addBook(book, new SetTime_Firebase.DataStatus() {
             @Override
             public void DataIsLoaded(List<SetTime_Db> books, List<String> keys) {
@@ -112,5 +118,8 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
             }
         });
 
-    }
+    }else {
+            Toast.makeText(AddSetTime.this,"volumn < 100g",Toast.LENGTH_LONG).show();
+        }
+}
 }

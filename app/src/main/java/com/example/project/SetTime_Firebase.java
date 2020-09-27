@@ -17,8 +17,10 @@ public class SetTime_Firebase {
     private DatabaseReference mReferenceBook;
     private List<SetTime_Db> books = new ArrayList<>();
 
-    LoginPage1 loginPage1 = new LoginPage1();
+    Home_Menu loginPage1 = new Home_Menu();
     String users = loginPage1.user.toString();
+    SelectMac_ReCon selectMac_reCon=new SelectMac_ReCon();
+    String macname = SelectMac_ReCon.macname.toString();
 
 
 
@@ -31,7 +33,7 @@ public class SetTime_Firebase {
     public SetTime_Firebase() {
 
         mDatabase = FirebaseDatabase.getInstance();
-        mReferenceBook = mDatabase.getReference("time").child("fd001");
+        mReferenceBook = mDatabase.getReference("time").child(macname);
     }
     public void  readBooks(final SetTime_Firebase.DataStatus dataStatus){
         mReferenceBook.addValueEventListener(new ValueEventListener() {

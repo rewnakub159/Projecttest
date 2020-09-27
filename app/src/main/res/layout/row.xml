@@ -16,7 +16,7 @@
         >
 
         <TextView
-            android:id="@+id/tvname"
+            android:id="@+id/macname_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="172dp"
@@ -25,17 +25,17 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <TextView
-            android:id="@+id/tvemail"
+            android:id="@+id/volumnnow_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="172dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvpass" />
+            app:layout_constraintTop_toBottomOf="@+id/volumn_tv" />
 
         <TextView
-            android:id="@+id/tvpass"
+            android:id="@+id/volumn_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="172dp"

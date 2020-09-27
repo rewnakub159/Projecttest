@@ -30,9 +30,9 @@ public class RecyclerView_Config {
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.book_list_item,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.tvname);
-            mPass = (TextView)itemView.findViewById(R.id.tvpass);
-            mEmail = (TextView)itemView.findViewById(R.id.tvemail);
+            mName = (TextView)itemView.findViewById(R.id.macname_tv1);
+            mPass = (TextView)itemView.findViewById(R.id.volumn_tv);
+            mEmail = (TextView)itemView.findViewById(R.id.volumnnow_tv);
         }
         public void bind(Register_DB book , String key){
             mName.setText(book.getUsername());

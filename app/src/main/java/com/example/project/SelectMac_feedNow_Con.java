@@ -13,65 +13,67 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class SetTime_ReCon {
-
-
+public class SelectMac_feedNow_Con {
 
     private Context mContext;
-    private SetTime_ReCon.BooksAdapter mBookAdapter;
-    public void setConfig(RecyclerView recyclerView, Context context, List<SetTime_Db> books, List<String> keys){
+    private SelectMac_feedNow_Con.BooksAdapter mBookAdapter;
+    TextView tv1;
+    public static String macname;
+    public void setConfig(RecyclerView recyclerView, Context context, List<Machine_DB> books, List<String> keys){
         mContext = context;
-        mBookAdapter = new SetTime_ReCon.BooksAdapter(books,keys);
+        mBookAdapter = new SelectMac_feedNow_Con.BooksAdapter(books,keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(mBookAdapter);
     }
     class BookItemView extends RecyclerView.ViewHolder{
         private TextView mName;
         private TextView mPass;
-
+        private TextView mEmail;
 
         private String key;
 
         public BookItemView(ViewGroup parent){
-            super(LayoutInflater.from(mContext).inflate(R.layout.settime_card,parent,false));
+            super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
             mName = (TextView)itemView.findViewById(R.id.macname_tv1);
             mPass = (TextView)itemView.findViewById(R.id.volumn_tv);
+            mEmail = (TextView)itemView.findViewById(R.id.volumnnow_tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext,SetTime_update.class);
-                    intent.putExtra("time",mName.getText().toString());
-                    intent.putExtra("amount",mPass.getText().toString());
+
+                    Intent intent = new Intent(mContext,MainActivity3.class);
+                    macname = mName.getText().toString();
                     mContext.startActivity(intent);
+
                 }
             });
         }
-        public  void bind(SetTime_Db book , String key){
-            mName.setText(book.getSettime());
-            mPass.setText(book.getAmountfood());
+        public  void bind(Machine_DB book , String key){
+            mName.setText(book.getName());
+            mPass.setText(book.getVolume());
+            mEmail.setText(book.getVolume_now());
             this.key = key;
 
         }
     }
-
-    class BooksAdapter extends RecyclerView.Adapter<SetTime_ReCon.BookItemView>{
-        private List<SetTime_Db>mBookList;
+    class BooksAdapter extends RecyclerView.Adapter<SelectMac_feedNow_Con.BookItemView>{
+        private List<Machine_DB>mBookList;
         private List<String> mKeys;
 
-        public BooksAdapter(List<SetTime_Db> mBookList, List<String> mKeys) {
+        public BooksAdapter(List<Machine_DB> mBookList, List<String> mKeys) {
             this.mBookList = mBookList;
             this.mKeys = mKeys;
         }
 
         @NonNull
         @Override
-        public SetTime_ReCon.BookItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new SetTime_ReCon.BookItemView(parent);
+        public SelectMac_feedNow_Con.BookItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new SelectMac_feedNow_Con.BookItemView(parent);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull SetTime_ReCon.BookItemView holder, int position) {
+        public void onBindViewHolder(@NonNull SelectMac_feedNow_Con.BookItemView holder, int position) {
             holder.bind(mBookList.get(position),mKeys.get(position));
         }
 

@@ -17,8 +17,8 @@ public class Pet_Firebase {
     private DatabaseReference mReferenceBook;
     private List<Pet_DB> books = new ArrayList<>();
 
-    LoginPage1 loginPage1 = new LoginPage1();
-    String users = loginPage1.user.toString();
+    Home_Menu homeMenu = new Home_Menu();
+    String users = homeMenu.user.toString();
 
 
 

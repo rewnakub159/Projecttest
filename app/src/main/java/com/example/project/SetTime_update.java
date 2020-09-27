@@ -30,7 +30,8 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
     int hour_x,minute_x;
     private String time;
     private String amount;
-
+    SelectMac_ReCon selectMac_reCon=new SelectMac_ReCon();
+    String macname = SelectMac_ReCon.macname.toString();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,7 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                setTime_db.setSettime(tv1.getText().toString());
                setTime_db.setAmountfood(et1.getText().toString());
                 final String time = tv1.getText().toString().trim();
-                Query query = FirebaseDatabase.getInstance().getReference("time").child("fd001").orderByChild("settime").equalTo(time);
+                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

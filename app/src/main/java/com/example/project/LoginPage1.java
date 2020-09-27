@@ -3,9 +3,7 @@ package com.example.project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginPage1 extends AppCompatActivity {
-public static String user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +62,9 @@ public static String user;
                                     sessionManager.setUsername(e1.getText().toString());
 
                                     Toast.makeText(LoginPage1.this,"Success Login",Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(LoginPage1.this,LoginPage3.class);
+                                    Intent i = new Intent(LoginPage1.this, Home_Menu.class);
                                     String users = e1.getText().toString();
-                                    user = users;
+
                                     i.putExtra("username",e1.getText().toString());
                                       startActivity(i);
 
@@ -87,7 +85,7 @@ public static String user;
             }
         });
         if (sessionManager.getLogin()){
-            startActivity(new Intent(getApplicationContext(),LoginPage3.class));
+            startActivity(new Intent(getApplicationContext(), Home_Menu.class));
         }
 
     }

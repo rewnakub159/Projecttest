@@ -7,18 +7,19 @@ import android.os.Bundle;
 
 import java.util.List;
 
-public class SelectMac_Re1 extends AppCompatActivity {
+public class SelectMac_feedNow extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_mac__re1);
-        mRecyclerView = (RecyclerView) findViewById(R.id.selectmac_recyclerview);
+        setContentView(R.layout.activity_select_mac_feed_now);
+
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.foodnowre1);
         new SelectMac_Firebase().readBooks(new SelectMac_Firebase.DataStatus() {
             @Override
             public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
-                new SelectMac_ReCon().setConfig(mRecyclerView, SelectMac_Re1.this,books,keys);
+                new SelectMac_feedNow_Con().setConfig(mRecyclerView, SelectMac_feedNow.this,books,keys);
             }
 
             @Override
@@ -37,6 +38,4 @@ public class SelectMac_Re1 extends AppCompatActivity {
             }
         });
     }
-
     }
-

@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginPage3"></activity>
+        <activity android:name=".SelectMac_feedNow"></activity>
+        <activity android:name=".Home_Menu"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".QrCode_addmachine" />
         <activity android:name=".SetTime_update" />
-        <activity
-            android:name=".Home"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".AddSetTime"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".SetTime_Re1" />
-        <activity android:name=".SelectMac_Re1" />
+        <activity
+            android:name=".SelectMac_setTime"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Pet_addPet"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

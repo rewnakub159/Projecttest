@@ -16,6 +16,8 @@ import java.util.List;
 public class SelectMac_ReCon {
     private Context mContext;
     private SelectMac_ReCon.BooksAdapter mBookAdapter;
+    TextView tv1;
+    public static String macname;
     public void setConfig(RecyclerView recyclerView, Context context, List<Machine_DB> books, List<String> keys){
         mContext = context;
         mBookAdapter = new SelectMac_ReCon.BooksAdapter(books,keys);
@@ -30,15 +32,17 @@ public class SelectMac_ReCon {
         private String key;
 
         public BookItemView(ViewGroup parent){
-            super(LayoutInflater.from(mContext).inflate(R.layout.book_list_item,parent,false));
+            super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.tvname);
-            mPass = (TextView)itemView.findViewById(R.id.tvpass);
-            mEmail = (TextView)itemView.findViewById(R.id.tvemail);
+            mName = (TextView)itemView.findViewById(R.id.macname_tv1);
+            mPass = (TextView)itemView.findViewById(R.id.volumn_tv);
+            mEmail = (TextView)itemView.findViewById(R.id.volumnnow_tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Intent intent = new Intent(mContext,SetTime_Re1.class);
+                    macname = mName.getText().toString();
                     mContext.startActivity(intent);
 
                 }
