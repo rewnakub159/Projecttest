@@ -21,23 +21,26 @@ public class Pet_RecycleView_Config {
         recyclerView.setAdapter(mBookAdapter);
     }
     class BookItemView extends RecyclerView.ViewHolder{
-        private TextView mName;
-        private TextView mPass;
-        private TextView mEmail;
+        private TextView name;
+        private TextView type;
+        private TextView breed;
+        private TextView gender;
 
         private String key;
 
         public BookItemView(ViewGroup parent){
-            super(LayoutInflater.from(mContext).inflate(R.layout.book_list_item,parent,false));
+            super(LayoutInflater.from(mContext).inflate(R.layout.pet_card,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.macname_tv1);
-            mPass = (TextView)itemView.findViewById(R.id.volumn_tv);
-            mEmail = (TextView)itemView.findViewById(R.id.volumnnow_tv);
+            name = (TextView)itemView.findViewById(R.id.petname);
+            type = (TextView)itemView.findViewById(R.id.type_tv);
+            breed = (TextView)itemView.findViewById(R.id.breed_tv);
+            gender = (TextView)itemView.findViewById(R.id.gender_tv);
         }
         public  void bind(Pet_DB book , String key){
-            mName.setText(book.getName());
-            mPass.setText(book.getAge());
-            mEmail.setText(book.getType());
+            name.setText(book.getName());
+            type.setText(book.getType());
+            breed.setText(book.getBreed());
+            gender.setText(book.getGender());
             this.key = key;
 
         }

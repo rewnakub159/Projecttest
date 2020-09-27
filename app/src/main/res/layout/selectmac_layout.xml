@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/macname_tv1"
+            android:id="@+id/petname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -29,7 +29,7 @@
             app:layout_constraintVertical_bias="0.122" />
 
         <TextView
-            android:id="@+id/volumnnow_tv"
+            android:id="@+id/breed_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -37,11 +37,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.996"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/volumn_tv"
+            app:layout_constraintTop_toBottomOf="@+id/type_tv"
             app:layout_constraintVertical_bias="0.166" />
 
         <TextView
-            android:id="@+id/volumn_tv"
+            android:id="@+id/type_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.996"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/macname_tv1"
+            app:layout_constraintTop_toBottomOf="@+id/petname"
             app:layout_constraintVertical_bias="0.112" />
 
         <ImageView
@@ -63,14 +63,14 @@
             app:srcCompat="@drawable/c1robot" />
 
         <TextView
-            android:id="@+id/foodlevel_tv"
+            android:id="@+id/gender_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
             android:text="TextView"
             app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/volumnnow_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/breed_tv" />
 
         <TextView
             android:id="@+id/textView13"
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.626"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/macname_tv1"
+            app:layout_constraintTop_toBottomOf="@+id/petname"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView

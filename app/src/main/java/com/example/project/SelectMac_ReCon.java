@@ -34,9 +34,9 @@ public class SelectMac_ReCon {
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.macname_tv1);
-            mPass = (TextView)itemView.findViewById(R.id.volumn_tv);
-            mEmail = (TextView)itemView.findViewById(R.id.volumnnow_tv);
+            mName = (TextView)itemView.findViewById(R.id.petname);
+            mPass = (TextView)itemView.findViewById(R.id.type_tv);
+            mEmail = (TextView)itemView.findViewById(R.id.breed_tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

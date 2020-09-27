@@ -16,7 +16,7 @@
         >
 
         <TextView
-            android:id="@+id/macname_tv1"
+            android:id="@+id/petname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0.122" />
 
         <TextView
-            android:id="@+id/volumnnow_tv"
+            android:id="@+id/breed_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -35,17 +35,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/volumn_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/type_tv" />
 
         <TextView
-            android:id="@+id/volumn_tv"
+            android:id="@+id/type_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/macname_tv1"
+            app:layout_constraintTop_toBottomOf="@+id/petname"
             app:layout_constraintVertical_bias="0.322" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
