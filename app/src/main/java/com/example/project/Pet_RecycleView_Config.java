@@ -1,7 +1,9 @@
 package com.example.project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -32,9 +34,19 @@ public class Pet_RecycleView_Config {
             super(LayoutInflater.from(mContext).inflate(R.layout.pet_card,parent,false));
 
             name = (TextView)itemView.findViewById(R.id.petname);
-            type = (TextView)itemView.findViewById(R.id.type_tv);
+            type = (TextView)itemView.findViewById(R.id.volume_tv);
             breed = (TextView)itemView.findViewById(R.id.breed_tv);
             gender = (TextView)itemView.findViewById(R.id.gender_tv);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(mContext,Pet_Profile.class);
+
+                    mContext.startActivity(intent);
+
+                }
+            });
         }
         public  void bind(Pet_DB book , String key){
             name.setText(book.getName());

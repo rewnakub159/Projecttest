@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectMac_feedNow"></activity>
-        <activity android:name=".Home_Menu"
+        <activity android:name=".Pet_Profile"></activity>
+        <activity android:name=".SelectMac_feedNow" />
+        <activity
+            android:name=".Home_Menu"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".QrCode_addmachine" />
         <activity android:name=".SetTime_update" />

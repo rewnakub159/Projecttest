@@ -36,7 +36,7 @@ public class SetTime_ReCon {
             super(LayoutInflater.from(mContext).inflate(R.layout.settime_card,parent,false));
 
             mName = (TextView)itemView.findViewById(R.id.petname);
-            mPass = (TextView)itemView.findViewById(R.id.type_tv);
+            mPass = (TextView)itemView.findViewById(R.id.volume_tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -49,7 +49,7 @@ public class SetTime_ReCon {
         }
         public  void bind(SetTime_Db book , String key){
             mName.setText(book.getSettime());
-            mPass.setText(book.getAmountfood());
+            mPass.setText(book.getVolume());
             this.key = key;
 
         }

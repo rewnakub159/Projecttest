@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSetTime">
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="375dp"
+        android:layout_height="620dp"
+        android:background="@drawable/settime_center1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.271" />
+
+    <TextView
+        android:id="@+id/addsettime_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="ปริมาณอาหาร"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="กรัม"
+        app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toEndOf="@+id/addsetime_et1"
+        app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="420dp"
+        android:layout_height="115dp"
+        android:background="@drawable/settime_topbar"
+        tools:layout_editor_absoluteX="-14dp"
+        tools:layout_editor_absoluteY="-10dp" />
+
+    <EditText
+        android:id="@+id/addsetime_et1"
+        android:layout_width="146dp"
+        android:layout_height="31dp"
+        android:background="@drawable/textview_buttomline"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.591"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/addsettime_tv1"
+        android:layout_width="166dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="216dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="TextView"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/addsettime_bt1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="97dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="เวลา"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addsettime_bt1"
+        android:layout_width="134dp"
+        android:layout_height="42dp"
+        android:background="@drawable/button"
+        android:text="ตั้งเวลา"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <Button
+        android:id="@+id/addsettime_bt4"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button"
+        android:text="ย้อนกลับ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addsettime_bt2"
+        app:layout_constraintVertical_bias="0.159" />
+
+    <Button
+        android:id="@+id/addsettime_bt2"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button"
+        android:text="บันทึก"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="46dp"
+        android:layout_height="45dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231"
+        app:srcCompat="@drawable/c1trash" />
+
+    <TextView
+        android:id="@+id/addsettime_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/russo_one"
+        android:text="SET TIME"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.537" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="187dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/settime_topbar1"
+        app:layout_constraintEnd_toStartOf="@+id/addsettime_tv"
+        tools:layout_editor_absoluteY="-11dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="105dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toStartOf="@+id/addsettime_tv"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/clock_settime" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="249dp"
+        android:layout_height="19dp"
+        android:text="ปริมาณอาหารต้องมากกว่า 100 กรัม"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="0.049" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

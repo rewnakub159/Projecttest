@@ -36,7 +36,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_set_time);
+        setContentView(R.layout.add_set_time);
 
         tv1 = (TextView)findViewById(R.id.addsettime_tv1);
         et1 = (EditText)findViewById(R.id.addsetime_et1);
@@ -62,7 +62,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getChildrenCount() == 1){ //check username
-                            Toast.makeText(AddSetTime.this,"Time is use",Toast.LENGTH_LONG).show();
+                            Toast.makeText(AddSetTime.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();
                         }else { addtime();
                         }
 
@@ -94,12 +94,13 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         if (s>= 100){
         SetTime_Db book = new SetTime_Db();
         book.setSettime(tv1.getText().toString());
-        book.setName(et1.getText().toString());
+        book.setVolume(et1.getText().toString());
+        book.setStatus("0");
 
         new SetTime_Firebase().addBook(book, new SetTime_Firebase.DataStatus() {
             @Override
             public void DataIsLoaded(List<SetTime_Db> books, List<String> keys) {
-                Toast.makeText(AddSetTime.this, "successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddSetTime.this, "เพิ่มเวลาสำเร็จ", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -119,7 +120,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         });
 
     }else {
-            Toast.makeText(AddSetTime.this,"volumn < 100g",Toast.LENGTH_LONG).show();
+            Toast.makeText(AddSetTime.this,"ปริมาณอาหารน้อยกว่า 100 กรัม",Toast.LENGTH_LONG).show();
         }
 }
 }

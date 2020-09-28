@@ -36,7 +36,7 @@ public class SelectMac_feedNow_Con {
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
             mName = (TextView)itemView.findViewById(R.id.petname);
-            mPass = (TextView)itemView.findViewById(R.id.type_tv);
+            mPass = (TextView)itemView.findViewById(R.id.volume_tv);
             mEmail = (TextView)itemView.findViewById(R.id.breed_tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
