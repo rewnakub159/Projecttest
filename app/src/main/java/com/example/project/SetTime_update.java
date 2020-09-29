@@ -31,12 +31,14 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
     EditText et1;
     TextView tv1;
     ImageButton imbt1;
+    int i =0;
 
 
     int hour,minute;
     int hour_x,minute_x;
     private String time;
     private String amount;
+    private String key;
     SelectMac_ReCon selectMac_reCon=new SelectMac_ReCon();
     String macname = SelectMac_ReCon.macname.toString();
     @Override
@@ -44,6 +46,7 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_time_update);
 
+        key = getIntent().getStringExtra("key");
         time = getIntent().getStringExtra("time");
         amount = getIntent().getStringExtra("amount");
 
@@ -73,10 +76,12 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.getChildrenCount() == 1){ //check username
+
+                        if (i==1 && dataSnapshot.getChildrenCount() == 1){ //check username
                             Toast.makeText(SetTime_update.this,"Time is use",Toast.LENGTH_LONG).show();
                         }else {
-                            new SetTime_Firebase().updaeBook(time, setTime_db, new SetTime_Firebase.DataStatus() {
+
+                            new SetTime_Firebase().updaeBook(key, setTime_db, new SetTime_Firebase.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<SetTime_Db> books, List<String> keys) {
 
@@ -115,12 +120,12 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                builder.setTitle("Log out");
+                builder.setTitle("ลบรายการ");
                 builder.setMessage("คุณต้องการลบรายการนี้ใช่หรือไม่");
                 builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        new SetTime_Firebase().deleteBook(time, new SetTime_Firebase.DataStatus() {
+                        new SetTime_Firebase().deleteBook(key, new SetTime_Firebase.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<SetTime_Db> books, List<String> keys) {
 
@@ -176,6 +181,7 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
         hour_x=hourOfDay;
         minute_x = minute;
         tv1.setText(hour_x+":"+minute_x);
+        i=1;
     }
     private int getIndex(Spinner spinner, String item) {
         int index = 0;

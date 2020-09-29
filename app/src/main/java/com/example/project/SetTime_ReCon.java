@@ -41,6 +41,7 @@ public class SetTime_ReCon {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext,SetTime_update.class);
+                    intent.putExtra("key",key);
                     intent.putExtra("time",mName.getText().toString());
                     intent.putExtra("amount",mPass.getText().toString());
                     mContext.startActivity(intent);

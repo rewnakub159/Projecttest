@@ -56,7 +56,8 @@ public class SetTime_Firebase {
 
     }
     public void addBook(SetTime_Db book, final DataStatus dataStatus){
-        String d =book.getSettime();
+        //String d =book.getSettime();
+        String d = mReferenceBook.push().getKey();
         mReferenceBook.child(d).setValue(book).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
