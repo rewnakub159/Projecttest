@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int hour,minute;
     int hour_x,minute_x;
-
+    int i =0;
     SelectMac_ReCon selectMac_reCon=new SelectMac_ReCon();
     String macname = SelectMac_ReCon.macname.toString();
     @Override
@@ -55,15 +56,21 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                final String volume = et1.getText().toString();
                 final String time = tv1.getText().toString().trim();
                 Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getChildrenCount() == 1){ //check username
-                            Toast.makeText(AddSetTime.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();
-                        }else { addtime();
+                            Toast.makeText(AddSetTime.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();Toast.makeText(AddSetTime.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();
+                        }else if (i==1){
+                            addtime();
+                        }
+                        else if (!TextUtils.isEmpty(volume)){
+                            Toast.makeText(AddSetTime.this,"กรุณากำหนดปริมาณ",Toast.LENGTH_LONG).show();
+                        }
+                        else { Toast.makeText(AddSetTime.this,"กรุณาตั้งเวลา",Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -86,6 +93,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         hour_x=hourOfDay;
         minute_x = minute;
         tv1.setText(hour_x+":"+minute_x);
+        i=1;
     }
     public void addtime(){
 

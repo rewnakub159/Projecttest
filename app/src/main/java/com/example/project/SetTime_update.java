@@ -72,14 +72,19 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                setTime_db.setVolume(et1.getText().toString());
                 final String time = tv1.getText().toString().trim();
 
+
                 Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        if (i==1 && dataSnapshot.getChildrenCount() == 1){ //check username
-                            Toast.makeText(SetTime_update.this,"Time is use",Toast.LENGTH_LONG).show();
-                        }else {
+                        int s;
+                        s = Integer.parseInt(et1.getText().toString());
+                        if (s<100){ //check username
+                            Toast.makeText(SetTime_update.this,"ปริมาณอาหารต้องมากกว่า 100 กรัม",Toast.LENGTH_LONG).show();
+                        }else if (i==1 && dataSnapshot.getChildrenCount() == 1){
+                            Toast.makeText(SetTime_update.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();
+                        }
+                        else {
 
                             new SetTime_Firebase().updaeBook(key, setTime_db, new SetTime_Firebase.DataStatus() {
                             @Override

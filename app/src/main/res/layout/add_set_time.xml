@@ -87,7 +87,6 @@
         android:layout_height="50dp"
         android:layout_marginTop="212dp"
         android:fontFamily="@font/amaranth_bold"
-        android:text="TextView"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/addsettime_bt1"
         app:layout_constraintEnd_toEndOf="parent"
