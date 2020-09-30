@@ -92,7 +92,16 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         hour_x=hourOfDay;
         minute_x = minute;
-        tv1.setText(hour_x+":"+minute_x);
+        String sHour,sminute;
+        sHour = String.valueOf(hourOfDay);
+        sminute= String.valueOf(minute);
+        if (hour_x<10){
+            sHour = "0"+hour_x;
+        }
+        if (minute_x<10){
+            sminute = "0"+minute_x;
+        }
+        tv1.setText(sHour +":"+ sminute);
         i=1;
     }
     public void addtime(){
