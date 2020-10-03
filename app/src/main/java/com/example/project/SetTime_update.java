@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,16 +68,20 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(et1.getText().toString())){
+                    et1.setText(amount);}
                final SetTime_Db setTime_db = new SetTime_Db();
-               setTime_db.setSettime(tv1.getText().toString());
-               setTime_db.setVolume(et1.getText().toString());
+
                 final String time = tv1.getText().toString().trim();
+                final String volume = et1.getText().toString();
 
 
                 Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        //setTime_db.setSettime(tv1.getText().toString());
+                        //setTime_db.setVolume(et1.getText().toString());
                         int s;
                         s = Integer.parseInt(et1.getText().toString());
                         if (s<100){ //check username
@@ -185,7 +190,16 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         hour_x=hourOfDay;
         minute_x = minute;
-        tv1.setText(hour_x+":"+minute_x);
+        String sHour,sminute;
+        sHour = String.valueOf(hourOfDay);
+        sminute= String.valueOf(minute);
+        if (hour_x<10){
+            sHour = "0"+hour_x;
+        }
+        if (minute_x<10){
+            sminute = "0"+minute_x;
+        }
+        tv1.setText(sHour +":"+ sminute);
         i=1;
     }
     private int getIndex(Spinner spinner, String item) {

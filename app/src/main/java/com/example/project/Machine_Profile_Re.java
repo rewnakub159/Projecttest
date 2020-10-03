@@ -11,18 +11,17 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-public class SelectMac_setTime extends AppCompatActivity {
+public class Machine_Profile_Re extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_mac__settime);
-        mRecyclerView = (RecyclerView) findViewById(R.id.selectmac_recyclerview);
-        new SelectMac_Firebase().readBooks(new SelectMac_Firebase.DataStatus() {
+        setContentView(R.layout.activity_machine__profile__re);
+        mRecyclerView = (RecyclerView) findViewById(R.id.machinepro_re1);
+        new Machine_Profile_Firebase().readBooks(new Machine_Profile_Firebase.DataStatus() {
             @Override
             public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
-                new SelectMac_ReCon().setConfig(mRecyclerView, SelectMac_setTime.this,books,keys);
+                new Machine_Profile_con().setConfig(mRecyclerView, Machine_Profile_Re.this,books,keys);
             }
 
             @Override
@@ -50,10 +49,9 @@ public class SelectMac_setTime extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) { //Menu Action
         switch (item.getItemId()){
             case R.id.addUser:
-                startActivity(new Intent(this,AddSetTime.class));
+                startActivity(new Intent(this,QrCode_addmachine.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-    }
-
+}

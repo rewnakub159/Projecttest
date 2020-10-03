@@ -32,7 +32,7 @@ public class QrCode_addmachine extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qr_code_addmachine);
+        setContentView(R.layout.qr_code_addmachine);
         et1=(EditText) findViewById(R.id.addmac_et1);
         scan_button = (Button) findViewById(R.id.scan_button);
 
@@ -76,14 +76,12 @@ public class QrCode_addmachine extends AppCompatActivity {
 
                             final String macname = et1.getText().toString();
                             reference= FirebaseDatabase.getInstance().getReference("machine2").child(macname);
-
                             reference.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     String userType = (String) dataSnapshot.child("status").getValue();
-
                                     if (userType.equals("use")) {
-                                        Toast.makeText(QrCode_addmachine.this, "Someone has already used this machine.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QrCode_addmachine.this, "เครื่องนี้ได้ถูกใช้ไปแล้ว", Toast.LENGTH_LONG).show();
                                     }else{
                                         reference=FirebaseDatabase.getInstance().getReference("machine2");
                                         reference.child(macname).child("status").setValue("use");
@@ -105,7 +103,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                         reference3= FirebaseDatabase.getInstance().getReference("history").child(users);
 
 
-                                        Toast.makeText(QrCode_addmachine.this, "Machine was added", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QrCode_addmachine.this, "เพื่อมเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
 
                                     }
                                 }
@@ -117,7 +115,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                             });
 
                         }else {
-                            Toast.makeText(QrCode_addmachine.this, "Does not have this machine", Toast.LENGTH_LONG).show();
+                            Toast.makeText(QrCode_addmachine.this, "ไม่มีเครื่องนี้อยู่ในระบบ", Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -156,7 +154,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
             else{
                 String qrtex = result.getContents();
-                Toast.makeText(this,result.getContents()+"55555",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,result.getContents(),Toast.LENGTH_LONG).show();
                 et1.setText(qrtex);
             }
 

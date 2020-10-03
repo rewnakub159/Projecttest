@@ -70,7 +70,6 @@
         android:layout_height="50dp"
         android:layout_marginTop="216dp"
         android:fontFamily="@font/amaranth_bold"
-        android:text="TextView"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/addsettime_bt1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,24 +150,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/russo_one"
-        android:text="SET TIME"
+        android:text="ตั้งเวลา"
+        android:textStyle="bold"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.761"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.611" />
 
     <View
         android:id="@+id/view2"
         android:layout_width="187dp"
         android:layout_height="120dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/settime_topbar1"
         app:layout_constraintEnd_toStartOf="@+id/addsettime_tv"
-        tools:layout_editor_absoluteY="-11dp" />
+        tools:layout_editor_absoluteY="-9dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -178,7 +178,7 @@
         android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toStartOf="@+id/addsettime_tv"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clock_settime" />

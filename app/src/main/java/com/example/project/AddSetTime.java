@@ -64,10 +64,10 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getChildrenCount() == 1){ //check username
                             Toast.makeText(AddSetTime.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();Toast.makeText(AddSetTime.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();
-                        }else if (i==1){
+                        }else if (i==1 && !TextUtils.isEmpty(volume)){
                             addtime();
                         }
-                        else if (!TextUtils.isEmpty(volume)){
+                        else if (TextUtils.isEmpty(volume)){
                             Toast.makeText(AddSetTime.this,"กรุณากำหนดปริมาณ",Toast.LENGTH_LONG).show();
                         }
                         else { Toast.makeText(AddSetTime.this,"กรุณาตั้งเวลา",Toast.LENGTH_LONG).show();
@@ -110,9 +110,9 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         s = Integer.parseInt(et1.getText().toString());
         if (s>= 100){
         SetTime_Db book = new SetTime_Db();
-        book.setSettime(tv1.getText().toString());
-        book.setVolume(et1.getText().toString());
-        book.setStatus("0");
+        //book.settime1(tv1.getText().toString());
+       // book.settime2(et1.getText().toString());
+       // book.setStatus("0");
 
         new SetTime_Firebase().addBook(book, new SetTime_Firebase.DataStatus() {
             @Override
