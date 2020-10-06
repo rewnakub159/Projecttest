@@ -49,7 +49,7 @@ public class SetTime_ReCon {
             });
         }
         public  void bind(SetTime_Db book , String key){
-            mName.setText(book.getSettime1());
+            //mName.setText(book.getSettime1());
             this.key = key;
 
         }

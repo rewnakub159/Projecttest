@@ -2,60 +2,50 @@ package com.example.project;
 
 public class SetTime_Db {
 
-    String settime1;
-    String settime2;
-    String settime3;
-    String settime4;
-    String settime5;
+    String settime;
+    String time;
+    String volume;
+    String status;
 
     public SetTime_Db() {
     }
 
-    public SetTime_Db(String settime1, String settime2, String settime3, String settime4, String settime5) {
-        this.settime1 = settime1;
-        this.settime2 = settime2;
-        this.settime3 = settime3;
-        this.settime4 = settime4;
-        this.settime5 = settime5;
+    public SetTime_Db(String settime, String time, String volume, String status) {
+        this.settime = settime;
+        this.time = time;
+        this.volume = volume;
+        this.status = status;
     }
 
-    public String getSettime1() {
-        return settime1;
+    public String getSettime() {
+        return settime;
     }
 
-    public void setSettime1(String settime1) {
-        this.settime1 = settime1;
+    public void setSettime(String settime) {
+        this.settime = settime;
     }
 
-    public String getSettime2() {
-        return settime2;
+    public String getTime() {
+        return time;
     }
 
-    public void setSettime2(String settime2) {
-        this.settime2 = settime2;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public String getSettime3() {
-        return settime3;
+    public String getVolume() {
+        return volume;
     }
 
-    public void setSettime3(String settime3) {
-        this.settime3 = settime3;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
-    public String getSettime4() {
-        return settime4;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSettime4(String settime4) {
-        this.settime4 = settime4;
-    }
-
-    public String getSettime5() {
-        return settime5;
-    }
-
-    public void setSettime5(String settime5) {
-        this.settime5 = settime5;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

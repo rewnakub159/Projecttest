@@ -58,7 +58,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
             public void onClick(View v) {
                 final String volume = et1.getText().toString();
                 final String time = tv1.getText().toString().trim();
-                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
+                Query query = FirebaseDatabase.getInstance().getReference("time").child("fd002").orderByChild("settime").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -110,9 +110,9 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         s = Integer.parseInt(et1.getText().toString());
         if (s>= 100){
         SetTime_Db book = new SetTime_Db();
-        //book.settime1(tv1.getText().toString());
-       // book.settime2(et1.getText().toString());
-       // book.setStatus("0");
+       // book.setSettime1(tv1.getText().toString());
+        //book.setSettime2(et1.getText().toString());
+        //book.setStatus("0");
 
         new SetTime_Firebase().addBook(book, new SetTime_Firebase.DataStatus() {
             @Override

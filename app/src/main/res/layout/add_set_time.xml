@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.487" />
 
     <View
         android:id="@+id/view3"
@@ -48,10 +48,34 @@
         android:maxLength="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.643" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="กรัม"
+        app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toEndOf="@+id/addsetime_et1"
+        app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="0.916" />
+
+    <TextView
+        android:id="@+id/addsettime_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="ปริมาณอาหาร"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="0.916" />
 
     <Button
         android:id="@+id/addsettime_bt1"
@@ -94,18 +118,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.724" />
-
-    <TextView
-        android:id="@+id/addsettime_tv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:text="ปริมาณอาหาร"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
-        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/addsettime_bt4"
@@ -159,18 +171,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clock_settime" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="กรัม"
-        app:layout_constraintBottom_toBottomOf="@+id/addsetime_et1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
-        app:layout_constraintStart_toEndOf="@+id/addsetime_et1"
-        app:layout_constraintTop_toTopOf="@+id/addsetime_et1"
-        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

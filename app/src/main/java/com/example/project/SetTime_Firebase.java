@@ -33,7 +33,8 @@ public class SetTime_Firebase {
     public SetTime_Firebase() {
 
         mDatabase = FirebaseDatabase.getInstance();
-        mReferenceBook = mDatabase.getReference("time").child(macname);
+        //mReferenceBook = mDatabase.getReference("time").child(macname);
+        mReferenceBook = mDatabase.getReference("time").child("fd002");
     }
     public void  readBooks(final SetTime_Firebase.DataStatus dataStatus){
         mReferenceBook.addValueEventListener(new ValueEventListener() {
@@ -56,7 +57,7 @@ public class SetTime_Firebase {
 
     }
     public void addBook(SetTime_Db book, final DataStatus dataStatus){
-        String d =book.getSettime1();
+        String d ="1";
         //String d = mReferenceBook.push().getKey();
         mReferenceBook.child(d).setValue(book).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

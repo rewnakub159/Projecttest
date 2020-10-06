@@ -102,6 +102,41 @@ public class QrCode_addmachine extends AppCompatActivity {
 
                                         reference3= FirebaseDatabase.getInstance().getReference("history").child(users);
 
+                                        String mac = et1.getText().toString().trim();
+                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
+                                        String settime = "settime1";
+                                        volume = "0";
+                                        String time = "00:00";
+                                        SetTime_Db setTime_db = new SetTime_Db(settime,time,volume,status);
+                                        reference2.child(settime).setValue(setTime_db);
+
+
+                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
+                                        settime = "settime2";
+                                        SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
+                                        reference2.child(settime).setValue(setTime_db2);
+
+
+
+
+                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
+                                        settime = "settime3";
+                                        SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
+                                       reference2.child(settime).setValue(setTime_db3);
+
+
+                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
+                                        settime = "settime4";
+                                        SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
+                                        reference2.child(settime).setValue(setTime_db4);
+
+
+                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
+                                        settime = "settime5";
+                                        SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
+                                        reference2.child(settime).setValue(setTime_db5);
+
+
 
                                         Toast.makeText(QrCode_addmachine.this, "เพื่อมเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
 
