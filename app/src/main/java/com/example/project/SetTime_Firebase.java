@@ -7,12 +7,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Filter;
+import java.util.logging.LogRecord;
 
-public class SetTime_Firebase {
+public class SetTime_Firebase  {
       private FirebaseDatabase mDatabase;
     private DatabaseReference mReferenceBook;
     private List<SetTime_Db> books = new ArrayList<>();
@@ -31,10 +36,9 @@ public class SetTime_Firebase {
         void DataIsDeleted();
     }
     public SetTime_Firebase() {
-
         mDatabase = FirebaseDatabase.getInstance();
-        //mReferenceBook = mDatabase.getReference("time").child(macname);
-        mReferenceBook = mDatabase.getReference("time").child("fd002");
+        mReferenceBook = mDatabase.getReference("time").child(macname);
+
     }
     public void  readBooks(final SetTime_Firebase.DataStatus dataStatus){
         mReferenceBook.addValueEventListener(new ValueEventListener() {
@@ -45,7 +49,13 @@ public class SetTime_Firebase {
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
                     SetTime_Db i = keyNode.getValue(SetTime_Db.class);
-                    books.add(i);
+                    if (i.getTime().equals("00:00")){
+
+
+                    }else {
+                        books.add(i);
+                    }
+
                 }
                 dataStatus.DataIsLoaded(books ,keys);          }
 
