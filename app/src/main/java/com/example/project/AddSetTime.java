@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -24,10 +25,11 @@ import java.util.Calendar;
 import java.util.List;
 
 public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.OnTimeSetListener {
-
+    private DatabaseReference reference;
      TextView tv1;
      EditText et1;
      Button bt1,bt2;
+    final SetTime_Db setTime_db = new SetTime_Db();
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int hour,minute;
     int hour_x,minute_x;
@@ -109,10 +111,34 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         int s;
         s = Integer.parseInt(et1.getText().toString());
         if (s>= 100){
+
+            for (int i=1; i >=5; i++){
+                final String settime = "settime"+i;
+                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild(settime).equalTo("time");
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        SetTime_Db i = dataSnapshot.getValue(SetTime_Db.class);
+                        if(i.getTime().equals("00:00") && i.getVolume().equals("0"));
+                            setTime_db.setTime(tv1.getText().toString());
+                            setTime_db.setVolume(et1.getText().toString());
+                            setTime_db.setSettime(settime);
+                            setTime_db.setStatus("0");
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+            }
         SetTime_Db book = new SetTime_Db();
        // book.setSettime1(tv1.getText().toString());
-        //book.setSettime2(et1.getText().toString());
-        //book.setStatus("0");
+       // book.setSettime2(et1.getText().toString());
+        book.setStatus("0");
 
         new SetTime_Firebase().addBook(book, new SetTime_Firebase.DataStatus() {
             @Override

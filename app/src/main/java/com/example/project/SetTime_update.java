@@ -80,8 +80,11 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        //setTime_db.setSettime(tv1.getText().toString());
-                        //setTime_db.setVolume(et1.getText().toString());
+                        setTime_db.setTime(tv1.getText().toString());
+                        setTime_db.setVolume(et1.getText().toString());
+                        setTime_db.setSettime(key);
+                        setTime_db.setStatus("0");
+
                         int s;
                         s = Integer.parseInt(et1.getText().toString());
                         if (s<100){ //check username
@@ -135,7 +138,12 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                 builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        new SetTime_Firebase().deleteBook(key, new SetTime_Firebase.DataStatus() {
+                        final SetTime_Db setTime_db = new SetTime_Db();
+                        setTime_db.setTime("00:00");
+                        setTime_db.setVolume("0");
+                        setTime_db.setSettime(key);
+                        setTime_db.setStatus("0");
+                        new SetTime_Firebase().updaeBook(key, setTime_db, new SetTime_Firebase.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<SetTime_Db> books, List<String> keys) {
 
@@ -148,12 +156,12 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
 
                             @Override
                             public void DataIsUpdated() {
-
+                                Toast.makeText(SetTime_update.this,"update successfully",Toast.LENGTH_LONG).show();
                             }
 
                             @Override
                             public void DataIsDeleted() {
-                                Toast.makeText(SetTime_update.this,"deleted successfully",Toast.LENGTH_LONG).show();
+
                             }
                         });
                         finish();

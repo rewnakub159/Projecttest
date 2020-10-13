@@ -53,7 +53,6 @@ public class SelectMac_ReCon {
             mPass.setText(book.getVolume());
             mEmail.setText(book.getVolume_now());
             this.key = key;
-
         }
     }
     class BooksAdapter extends RecyclerView.Adapter<SelectMac_ReCon.BookItemView>{

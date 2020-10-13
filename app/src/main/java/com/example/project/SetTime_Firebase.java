@@ -38,7 +38,6 @@ public class SetTime_Firebase  {
     public SetTime_Firebase() {
         mDatabase = FirebaseDatabase.getInstance();
         mReferenceBook = mDatabase.getReference("time").child(macname);
-
     }
     public void  readBooks(final SetTime_Firebase.DataStatus dataStatus){
         mReferenceBook.addValueEventListener(new ValueEventListener() {
@@ -49,13 +48,9 @@ public class SetTime_Firebase  {
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
                     SetTime_Db i = keyNode.getValue(SetTime_Db.class);
-                    if (i.getTime().equals("00:00")){
-
-
-                    }else {
-                        books.add(i);
+                    if (i.getTime().equals("00:00") && i.getVolume().equals("0")){
+                    }else { books.add(i);
                     }
-
                 }
                 dataStatus.DataIsLoaded(books ,keys);          }
 
