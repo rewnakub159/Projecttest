@@ -29,6 +29,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
      TextView tv1;
      EditText et1;
      Button bt1,bt2;
+    String c = "0";
     final SetTime_Db setTime_db = new SetTime_Db();
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int hour,minute;
@@ -112,19 +113,45 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
         s = Integer.parseInt(et1.getText().toString());
         if (s>= 100){
 
-            for (int i=1; i >=5; i++){
-                final String settime = "settime"+i;
-                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild(settime).equalTo("time");
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
+            for (int i=1; i >=5; i++) {
+                String count = String.valueOf(i);
+                final String key = "settime"+ i;
+                final String time = "00:00";
+                reference = FirebaseDatabase.getInstance().getReference("time").child(macname).child(key);
+                reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         SetTime_Db i = dataSnapshot.getValue(SetTime_Db.class);
-                        if(i.getTime().equals("00:00") && i.getVolume().equals("0"));
+                        if (i.getTime().equals("00:00") && i.getVolume().equals("0")) {
                             setTime_db.setTime(tv1.getText().toString());
                             setTime_db.setVolume(et1.getText().toString());
-                            setTime_db.setSettime(settime);
+                            setTime_db.setSettime(key);
                             setTime_db.setStatus("0");
 
+
+                            c = "1";
+                            new SetTime_Firebase().updaeBook(key, setTime_db, new SetTime_Firebase.DataStatus() {
+                                @Override
+                                public void DataIsLoaded(List<SetTime_Db> books, List<String> keys) {
+
+                                }
+
+                                @Override
+                                public void DataIsInserted() {
+
+                                }
+
+                                @Override
+                                public void DataIsUpdated() {
+                                    Toast.makeText(AddSetTime.this,"update successfully",Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void DataIsDeleted() {
+
+                                }
+                            });
+                        }
                     }
 
                     @Override
@@ -132,9 +159,13 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                     }
                 });
-
-
+                if (c == "1"){
+                    break;
+                }
             }
+
+
+
         SetTime_Db book = new SetTime_Db();
        // book.setSettime1(tv1.getText().toString());
        // book.setSettime2(et1.getText().toString());

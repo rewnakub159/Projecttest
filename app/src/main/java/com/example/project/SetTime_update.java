@@ -76,14 +76,11 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                 final String volume = et1.getText().toString();
 
 
-                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("settime").equalTo(time);
+                Query query = FirebaseDatabase.getInstance().getReference("time").child(macname).orderByChild("time").equalTo(time);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        setTime_db.setTime(tv1.getText().toString());
-                        setTime_db.setVolume(et1.getText().toString());
-                        setTime_db.setSettime(key);
-                        setTime_db.setStatus("0");
+
 
                         int s;
                         s = Integer.parseInt(et1.getText().toString());
@@ -93,6 +90,11 @@ public class SetTime_update extends AppCompatActivity implements   TimePickerDia
                             Toast.makeText(SetTime_update.this,"เวลานี้ถูกใช้แล้ว",Toast.LENGTH_LONG).show();
                         }
                         else {
+
+                            setTime_db.setTime(tv1.getText().toString());
+                            setTime_db.setVolume(et1.getText().toString());
+                            setTime_db.setSettime(key);
+                            setTime_db.setStatus("0");
 
                             new SetTime_Firebase().updaeBook(key, setTime_db, new SetTime_Firebase.DataStatus() {
                             @Override
