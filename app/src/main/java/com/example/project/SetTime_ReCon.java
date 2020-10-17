@@ -28,6 +28,7 @@ public class SetTime_ReCon {
     class BookItemView extends RecyclerView.ViewHolder{
         private TextView mName;
         private TextView mPass;
+        private String settime;
 
 
         private String key;
@@ -41,7 +42,7 @@ public class SetTime_ReCon {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext,SetTime_update.class);
-                    intent.putExtra("key",key);
+                    intent.putExtra("key",settime);
                     intent.putExtra("time",mName.getText().toString());
                     intent.putExtra("amount",mPass.getText().toString());
                     mContext.startActivity(intent);
@@ -51,6 +52,7 @@ public class SetTime_ReCon {
         public  void bind(SetTime_Db book , String key){
             mName.setText(book.getTime());
             mPass.setText(book.getVolume());
+            settime= book.getSettime();
             this.key = key;
 
         }
