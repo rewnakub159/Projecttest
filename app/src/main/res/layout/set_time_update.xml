@@ -187,7 +187,7 @@
         android:id="@+id/textView18"
         android:layout_width="249dp"
         android:layout_height="19dp"
-        android:text="ปริมาณอาหารต้องมากกว่า 100 กรัม"
+        android:text="ปริมาณอาหารต้องไม่เกิน 400 กรัม"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"

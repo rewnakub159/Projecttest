@@ -51,7 +51,7 @@ public class SelectMac_ReCon {
         public  void bind(Machine_DB book , String key){
             mName.setText(book.getName());
             mPass.setText(book.getVolume());
-            mEmail.setText(book.getVolume_now());
+            mEmail.setText(book.getFood_level());
             this.key = key;
         }
     }

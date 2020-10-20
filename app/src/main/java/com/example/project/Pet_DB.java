@@ -2,21 +2,21 @@ package com.example.project;
 
 public class Pet_DB {
     String name;
-    String age;
+    String petnumber;
     String breed;
     String gender;
-    String weigth;
+    String birthday;
     String type;
 
     public Pet_DB() {
     }
 
-    public Pet_DB(String name, String age, String breed, String gender, String weigth, String type) {
+    public Pet_DB(String name, String petnumber, String breed, String gender, String birthday, String type) {
         this.name = name;
-        this.age = age;
+        this.petnumber = petnumber;
         this.breed = breed;
         this.gender = gender;
-        this.weigth = weigth;
+        this.birthday = birthday;
         this.type = type;
     }
 
@@ -28,12 +28,12 @@ public class Pet_DB {
         this.name = name;
     }
 
-    public String getAge() {
-        return age;
+    public String getPetnumber() {
+        return petnumber;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setPetnumber(String petnumber) {
+        this.petnumber = petnumber;
     }
 
     public String getBreed() {
@@ -52,12 +52,12 @@ public class Pet_DB {
         this.gender = gender;
     }
 
-    public String getWeigth() {
-        return weigth;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setWeigth(String weigth) {
-        this.weigth = weigth;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getType() {

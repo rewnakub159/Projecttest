@@ -42,7 +42,7 @@ public class SelectMac_feedNow_Con {
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(mContext,MainActivity3.class);
+                    Intent intent = new Intent(mContext, Feeding_now.class);
                     macname = mName.getText().toString();
                     mContext.startActivity(intent);
 
@@ -52,7 +52,7 @@ public class SelectMac_feedNow_Con {
         public  void bind(Machine_DB book , String key){
             mName.setText(book.getName());
             mPass.setText(book.getVolume());
-            mEmail.setText(book.getVolume_now());
+            mEmail.setText(book.getFood_level());
             this.key = key;
 
         }

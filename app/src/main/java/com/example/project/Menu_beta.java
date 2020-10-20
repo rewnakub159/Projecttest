@@ -27,7 +27,7 @@ public class Menu_beta extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu_beta.this,MainActivity3.class);
+                Intent i = new Intent(Menu_beta.this, Feeding_now.class);
                 startActivity(i);
             }
         });

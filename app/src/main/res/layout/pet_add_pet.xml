@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Pet_addPet">
 
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ประเภท"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="178dp" />
+
+    <EditText
+        android:id="@+id/petAdd_name_et1"
+        android:layout_width="200dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="112dp"
+
+
+        android:background="@drawable/register_edittext"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/pet_add_bt1"
         style="?android:attr/borderlessButtonStyle"
@@ -87,18 +110,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petAdd_name_et1" />
 
-    <EditText
-        android:id="@+id/petAdd_name_et1"
-        android:layout_width="300dp"
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:text="ชื่อสัตว์เลี้ยง"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="สายพันธุ์"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="346dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="วันเกิด"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="269dp" />
 
 
-        android:background="@drawable/register_edittext"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="78dp"
+        android:layout_height="35dp"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="44dp"
+
+        android:elevation="4dp"
+        android:text="RadioButton"
+        app:layout_constraintBottom_toBottomOf="@+id/petAdd_name_et1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/petAdd_name_et1"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

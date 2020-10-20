@@ -22,7 +22,7 @@ public class Pet_addPet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pet_add_pet);
+        setContentView(R.layout.pet_add_pet);
 
 
         et1 = (EditText)findViewById(R.id.petAdd_name_et1);
