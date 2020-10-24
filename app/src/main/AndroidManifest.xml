@@ -9,12 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Machine_profile"></activity>
+        <activity android:name=".SelectMac_cameraRe"
+            android:parentActivityName=".Home_Menu"></activity>
+        <activity android:name=".Machine_profile" />
         <activity android:name=".AddSetTime_Card" />
         <activity android:name=".SetTime_Card" />
-        <activity android:name=".Machine_Profile_Re" />
+        <activity
+            android:name=".Machine_Profile_Re"
+            android:parentActivityName=".Home_Menu" />
         <activity android:name=".Pet_Profile" />
-        <activity android:name=".SelectMac_feedNow" />
+        <activity
+            android:name=".SelectMac_feedNow"
+            android:parentActivityName=".Home_Menu" />
         <activity
             android:name=".Home_Menu"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -23,14 +29,18 @@
         <activity
             android:name=".AddSetTime"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".SetTime_Re1" />
+        <activity
+            android:name=".SetTime_Re1"
+            android:parentActivityName=".SelectMac_setTime" />
         <activity
             android:name=".SelectMac_setTime"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:parentActivityName=".Home_Menu" />
         <activity
             android:name=".Pet_addPet"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Pet_Re1" />
+        <activity
+            android:name=".Pet_Re1"
+            android:parentActivityName=".Home_Menu" />
         <activity
             android:name=".Menu_beta"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

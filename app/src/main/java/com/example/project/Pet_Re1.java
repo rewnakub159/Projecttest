@@ -18,6 +18,10 @@ public class Pet_Re1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_machine_re1);
+
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mRecyclerView = (RecyclerView)findViewById(R.id.macRecycler);
        new Pet_Firebase().readBooks(new Pet_Firebase.DataStatus() {
            @Override

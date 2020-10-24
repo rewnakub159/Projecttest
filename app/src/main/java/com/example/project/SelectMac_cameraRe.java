@@ -7,12 +7,13 @@ import android.os.Bundle;
 
 import java.util.List;
 
-public class SelectMac_feedNow extends AppCompatActivity {
+public class SelectMac_cameraRe extends AppCompatActivity {
     private RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_mac_feed_now);
+        setContentView(R.layout.select_mac_camera_re);
 
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -21,7 +22,7 @@ public class SelectMac_feedNow extends AppCompatActivity {
         new SelectMac_Firebase().readBooks(new SelectMac_Firebase.DataStatus() {
             @Override
             public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
-                new SelectMac_feedNow_Con().setConfig(mRecyclerView, SelectMac_feedNow.this,books,keys);
+                new SelectMac_cameraCon().setConfig(mRecyclerView, SelectMac_cameraRe.this,books,keys);
             }
 
             @Override

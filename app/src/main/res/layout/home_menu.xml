@@ -219,7 +219,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/homecard_feednow"
+                android:id="@+id/homecard_camera"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
 

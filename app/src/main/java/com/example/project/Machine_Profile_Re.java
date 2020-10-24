@@ -17,6 +17,10 @@ public class Machine_Profile_Re extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_machine__profile__re);
+
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.machinepro_re1);
         new Machine_Profile_Firebase().readBooks(new Machine_Profile_Firebase.DataStatus() {
             @Override

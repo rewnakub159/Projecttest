@@ -18,6 +18,10 @@ public class SelectMac_setTime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_mac__settime);
+
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.selectmac_recyclerview);
         new SelectMac_Firebase().readBooks(new SelectMac_Firebase.DataStatus() {
             @Override

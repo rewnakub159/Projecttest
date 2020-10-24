@@ -15,7 +15,7 @@ public class Home_Menu extends AppCompatActivity {
     public static String user;
     TextView tv1;
     Button bt1;
-    CardView c1,c2,c3,c4;
+    CardView c1,c2,c3,c4,c5;
 
     SessionManager sessionManager;
     @Override
@@ -27,6 +27,7 @@ public class Home_Menu extends AppCompatActivity {
         c2 = (CardView)findViewById(R.id.homecard_settime);
         c3 = (CardView)findViewById(R.id.homecard_pet_re);
         c4 = (CardView)findViewById(R.id.homecard_mac_re);
+        c5 = (CardView)findViewById(R.id.homecard_camera);
 
         tv1= (TextView)findViewById(R.id.tvuser);
         bt1=(Button)findViewById(R.id.bt_logout);
@@ -82,6 +83,13 @@ public class Home_Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Machine_Profile_Re.class));
+            }
+        });
+        c5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SelectMac_cameraRe.class));
+
             }
         });
     }

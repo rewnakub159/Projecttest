@@ -16,6 +16,8 @@ public class SetTime_Re1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_set_time__re1);
         mRecyclerView = (RecyclerView) findViewById(R.id.settime_recyclerview);
         new SetTime_Firebase().readBooks(new SetTime_Firebase.DataStatus() {
