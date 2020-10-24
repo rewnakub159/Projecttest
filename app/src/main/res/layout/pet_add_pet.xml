@@ -227,7 +227,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/c3" />
+        app:srcCompat="@drawable/ic_paw" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

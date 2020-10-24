@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="10dp"
-                    app:srcCompat="@drawable/c1" />
+                    app:srcCompat="@drawable/ic_pet_food" />
 
             </LinearLayout>
 

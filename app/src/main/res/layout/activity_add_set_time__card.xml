@@ -134,8 +134,8 @@
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="46dp"
-        android:layout_height="45dp"
+        android:layout_width="72dp"
+        android:layout_height="54dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +143,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.231"
-        app:srcCompat="@drawable/c1trash" />
+        app:srcCompat="@drawable/ic_delete" />
 
     <TextView
         android:id="@+id/addsettime_tv"
@@ -181,7 +181,7 @@
         app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/clock_settime" />
+        app:srcCompat="@drawable/ic_food" />
 
     <TextView
         android:id="@+id/textView18"

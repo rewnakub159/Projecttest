@@ -79,5 +79,5 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.089"
-        app:srcCompat="@drawable/c5" />
+        app:srcCompat="@drawable/ic_dog_paw" />
 </androidx.constraintlayout.widget.ConstraintLayout>
