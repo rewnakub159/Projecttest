@@ -43,6 +43,13 @@ public class RegisterPage extends AppCompatActivity {
         final String email = e4.getText().toString().trim();
 
         Button bt1 = (Button)findViewById(R.id.button);
+        Button bt2 = (Button)findViewById(R.id.button3);
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
  bt1.setOnClickListener(new View.OnClickListener() {
      @Override
      public void onClick(View v) {
