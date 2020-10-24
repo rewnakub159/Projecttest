@@ -49,7 +49,7 @@ public class Pet_RecycleView_Config {
             });
         }
         public  void bind(Pet_DB book , String key){
-            name.setText(book.getName());
+            name.setText(book.getPetname());
             type.setText(book.getType());
             breed.setText(book.getBreed());
             gender.setText(book.getGender());

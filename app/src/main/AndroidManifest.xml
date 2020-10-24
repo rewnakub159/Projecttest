@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddSetTime_Card"></activity>
+        <activity android:name=".Machine_profile"></activity>
+        <activity android:name=".AddSetTime_Card" />
         <activity android:name=".SetTime_Card" />
         <activity android:name=".Machine_Profile_Re" />
         <activity android:name=".Pet_Profile" />

@@ -1,7 +1,7 @@
 package com.example.project;
 
 public class Pet_DB {
-    String name;
+    String petname;
     String petnumber;
     String breed;
     String gender;
@@ -11,8 +11,8 @@ public class Pet_DB {
     public Pet_DB() {
     }
 
-    public Pet_DB(String name, String petnumber, String breed, String gender, String birthday, String type) {
-        this.name = name;
+    public Pet_DB(String petname, String petnumber, String breed, String gender, String birthday, String type) {
+        this.petname = petname;
         this.petnumber = petnumber;
         this.breed = breed;
         this.gender = gender;
@@ -20,12 +20,12 @@ public class Pet_DB {
         this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public String getPetname() {
+        return petname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPetname(String petname) {
+        this.petname = petname;
     }
 
     public String getPetnumber() {

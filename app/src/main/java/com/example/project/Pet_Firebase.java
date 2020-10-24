@@ -42,7 +42,9 @@ public class Pet_Firebase {
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
                     Pet_DB i = keyNode.getValue(Pet_DB.class);
-                    books.add(i);
+                    if (i.getPetname().equals("null")){
+                    }else {
+                    books.add(i);}
                 }
                 dataStatus.DataIsLoaded(books ,keys);          }
 
@@ -54,7 +56,7 @@ public class Pet_Firebase {
 
     }
     public void addBook(Pet_DB book, final Pet_Firebase.DataStatus dataStatus){
-        String d =book.getName();
+        String d =book.getPetname();
         mReferenceBook.child(d).setValue(book).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
