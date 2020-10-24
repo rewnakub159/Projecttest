@@ -12,7 +12,7 @@
         android:layout_height="181dp"
         android:background="@drawable/home_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +22,7 @@
         android:layout_height="50dp"
         android:text="logout"
         android:textSize="20dp"
+        android:background="@drawable/button"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,16 +33,18 @@
 
     <TextView
         android:id="@+id/tvuser"
-        android:layout_width="168dp"
-        android:layout_height="30dp"
+        android:layout_width="284dp"
+        android:layout_height="37dp"
         android:text="TextView"
-        android:textSize="20dp"
+        android:textColor="@color/zxing_status_text"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintVertical_bias="0.054" />
 
     <LinearLayout
         android:layout_width="390dp"
