@@ -75,7 +75,7 @@
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:padding="10dp"
-                    app:srcCompat="@drawable/cooking" />
+                    app:srcCompat="@drawable/ic_food" />
 
                 <TextView
                     android:id="@+id/textView9"
