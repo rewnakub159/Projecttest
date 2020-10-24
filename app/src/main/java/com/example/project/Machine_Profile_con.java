@@ -41,7 +41,7 @@ public class Machine_Profile_con {
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(mContext,SetTime_Re1.class);
+                    Intent intent = new Intent(mContext,Machine_profile.class);
                     macname = mName.getText().toString();
                     mContext.startActivity(intent);
 
