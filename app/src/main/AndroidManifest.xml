@@ -24,8 +24,10 @@
         <activity
             android:name=".Home_Menu"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".QrCode_addmachine" />
-        <activity android:name=".SetTime_update" />
+        <activity android:name=".QrCode_addmachine"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SetTime_update"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".AddSetTime"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

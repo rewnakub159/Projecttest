@@ -45,19 +45,6 @@ public class SelectMac_setTime extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {  //Top Menu
-        getMenuInflater().inflate(R.menu.user_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) { //Menu Action
-        switch (item.getItemId()){
-            case R.id.addUser:
-                startActivity(new Intent(this,AddSetTime.class));
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
     }
 
