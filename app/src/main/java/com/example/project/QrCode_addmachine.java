@@ -22,7 +22,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class QrCode_addmachine extends AppCompatActivity {
-    private DatabaseReference reference,reference2,reference3;
+    private DatabaseReference reference,reference2,reference3,reference4;
     private Button scan_button,bt1,bt2,bt3;
     EditText et1;
     TextView tv1,tv2;
@@ -138,25 +138,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                        reference2= FirebaseDatabase.getInstance().getReference("pet").child(users);
-                                        String petnumber = "pet1";
-                                        String petname = "null";
-                                        String gender = "null";
-                                        String type = "null";
-                                        String breed = "null";
-                                        String birthday = "null";
-                                        Pet_DB pet_db1 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
-                                        reference2.child(petnumber).setValue(pet_db1);
 
-                                        reference2= FirebaseDatabase.getInstance().getReference("pet").child(users);
-                                        petnumber = "pet2";
-                                        Pet_DB pet_db2 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
-                                        reference2.child(petnumber).setValue(pet_db2);
-
-                                        reference2= FirebaseDatabase.getInstance().getReference("pet").child(users);
-                                        petnumber = "pet3";
-                                        Pet_DB pet_db3 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
-                                        reference2.child(petnumber).setValue(pet_db3);
 
                                         Toast.makeText(QrCode_addmachine.this, "เพื่อมเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
 

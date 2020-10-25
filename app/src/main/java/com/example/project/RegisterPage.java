@@ -18,7 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class RegisterPage extends AppCompatActivity {
-
+    DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,9 +95,32 @@ public class RegisterPage extends AppCompatActivity {
 
 
 if (!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(password)&&!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(password)==!TextUtils.isEmpty(password2)) {
+
     DatabaseReference dbregister = FirebaseDatabase.getInstance().getReference("user") ;
     Register_DB register1 = new Register_DB(username,password,email);
     dbregister.child(username).setValue(register1); //set name part
+
+    reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
+    String petnumber = "pet1";
+    String petname = "null";
+    String gender = "null";
+    String type = "null";
+    String breed = "null";
+    String birthday = "null";
+    Pet_DB pet_db1 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
+    reference.child(petnumber).setValue(pet_db1);
+
+    reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
+    petnumber = "pet2";
+    Pet_DB pet_db2 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
+    reference.child(petnumber).setValue(pet_db2);
+
+    reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
+    petnumber = "pet3";
+    Pet_DB pet_db3 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
+    reference.child(petnumber).setValue(pet_db3);
+
+
     Toast.makeText(this,"0000",Toast.LENGTH_LONG).show();
     finish(); }
 else if (password != password2){Toast.makeText(this,"2",Toast.LENGTH_LONG).show();}
