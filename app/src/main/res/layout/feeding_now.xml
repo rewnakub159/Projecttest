@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Feeding_now" >
 
-    <View
-        android:id="@+id/view8"
-        android:layout_width="375dp"
-        android:layout_height="620dp"
-        android:background="@drawable/settime_center1"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button"
+        android:text="บันทึก"
+        app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        app:layout_constraintVertical_bias="0.631" />
 
     <Button
         android:id="@+id/bt2"
@@ -25,29 +26,30 @@
         android:text="ย้อนกลับ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt1"
-        app:layout_constraintVertical_bias="0.124" />
-
-    <Button
-        android:id="@+id/bt1"
-        android:layout_width="119dp"
-        android:layout_height="40dp"
-        android:background="@drawable/button"
-        android:text="บันทึก"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
-        app:layout_constraintVertical_bias="0.317" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <View
-        android:id="@+id/view6"
-        android:layout_width="408dp"
-        android:layout_height="109dp"
+        android:id="@+id/view11"
+        android:layout_width="409dp"
+        android:layout_height="115dp"
         android:background="@drawable/settime_topbar"
         tools:layout_editor_absoluteX="-7dp"
         tools:layout_editor_absoluteY="-7dp" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="342dp"
+        android:layout_height="495dp"
+        android:background="@drawable/settime_center1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view11"
+        app:layout_constraintVertical_bias="0.198" />
 
     <TextView
         android:id="@+id/addsettime_tv5"
@@ -58,12 +60,11 @@
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="40dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="@+id/view6"
-        app:layout_constraintTop_toTopOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021" />
 
     <EditText
         android:id="@+id/et1"
@@ -75,16 +76,16 @@
         android:maxLength="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
+        app:layout_constraintTop_toTopOf="@+id/view8"
+        app:layout_constraintVertical_bias="0.166" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="44dp"
         android:text="กรัม"
         app:layout_constraintBottom_toBottomOf="@+id/et1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +100,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/et1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et1"
         app:layout_constraintVertical_bias="1.0" />
@@ -108,13 +109,38 @@
         android:id="@+id/textView23"
         android:layout_width="212dp"
         android:layout_height="21dp"
+        android:layout_marginBottom="420dp"
         android:text="ปริมาณอาหารต้องมากกว่า 100 กรัม"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.618"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view6"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintTop_toBottomOf="@+id/et1" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/circle1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        app:srcCompat="@drawable/ic_pet_bowl" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

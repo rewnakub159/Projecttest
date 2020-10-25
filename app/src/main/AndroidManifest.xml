@@ -11,13 +11,15 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SelectMac_cameraRe"
             android:parentActivityName=".Home_Menu"></activity>
-        <activity android:name=".Machine_profile" />
+        <activity android:name=".Machine_profile"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".AddSetTime_Card" />
         <activity android:name=".SetTime_Card" />
         <activity
             android:name=".Machine_Profile_Re"
             android:parentActivityName=".Home_Menu" />
-        <activity android:name=".Pet_Profile" />
+        <activity android:name=".Pet_Profile"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".SelectMac_feedNow"
             android:parentActivityName=".Home_Menu" />
