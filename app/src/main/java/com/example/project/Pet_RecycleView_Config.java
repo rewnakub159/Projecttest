@@ -33,9 +33,9 @@ public class Pet_RecycleView_Config {
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.pet_card,parent,false));
 
-            name = (TextView)itemView.findViewById(R.id.petname);
-            type = (TextView)itemView.findViewById(R.id.volume_tv);
-            breed = (TextView)itemView.findViewById(R.id.breed_tv);
+            name = (TextView)itemView.findViewById(R.id.name);
+            type = (TextView)itemView.findViewById(R.id.volume);
+            breed = (TextView)itemView.findViewById(R.id.volume_level);
             gender = (TextView)itemView.findViewById(R.id.gender_tv);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

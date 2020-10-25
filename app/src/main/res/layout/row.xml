@@ -16,7 +16,7 @@
         >
 
         <TextView
-            android:id="@+id/petname"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="172dp"
@@ -25,17 +25,17 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <TextView
-            android:id="@+id/breed_tv"
+            android:id="@+id/volume_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="172dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/volume_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/volume" />
 
         <TextView
-            android:id="@+id/volume_tv"
+            android:id="@+id/volume"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="172dp"

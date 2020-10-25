@@ -18,6 +18,8 @@ public class Feeding_now extends AppCompatActivity {
     String macname = SelectMac_feedNow_Con.macname.toString();
     Home_Menu loginPage1 = new Home_Menu();
     String users = loginPage1.user.toString();
+    String key;
+
 
 
     @Override
@@ -27,7 +29,6 @@ public class Feeding_now extends AppCompatActivity {
 
 
         final EditText editText =(EditText)findViewById(R.id.et1);
-
         Button button = (Button)findViewById(R.id.bt1);
         Button button1 = (Button)findViewById(R.id.bt2);
         reference=FirebaseDatabase.getInstance().getReference("machineprofile").child(users);

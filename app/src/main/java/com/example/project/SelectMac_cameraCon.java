@@ -35,9 +35,9 @@ public class SelectMac_cameraCon {
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.petname);
-            mPass = (TextView)itemView.findViewById(R.id.volume_tv);
-            mEmail = (TextView)itemView.findViewById(R.id.breed_tv);
+            mName = (TextView)itemView.findViewById(R.id.name);
+            mPass = (TextView)itemView.findViewById(R.id.volume);
+            mEmail = (TextView)itemView.findViewById(R.id.volume_level);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

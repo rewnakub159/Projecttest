@@ -27,23 +27,23 @@ public class SelectMac_feedNow_Con {
     }
     class BookItemView extends RecyclerView.ViewHolder{
         private TextView mName;
-        private TextView mPass;
-        private TextView mEmail;
-
+        private TextView mvolume;
+        private TextView mlevel;
         private String key;
 
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.petname);
-            mPass = (TextView)itemView.findViewById(R.id.volume_tv);
-            mEmail = (TextView)itemView.findViewById(R.id.breed_tv);
+            mName = (TextView)itemView.findViewById(R.id.name);
+            mvolume = (TextView)itemView.findViewById(R.id.volume);
+            mlevel = (TextView)itemView.findViewById(R.id.volume_level);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     Intent intent = new Intent(mContext, Feeding_now.class);
                     macname = mName.getText().toString();
+                    intent.putExtra("key",key);
                     mContext.startActivity(intent);
 
                 }
@@ -51,10 +51,9 @@ public class SelectMac_feedNow_Con {
         }
         public  void bind(Machine_DB book , String key){
             mName.setText(book.getName());
-            mPass.setText(book.getVolume());
-            mEmail.setText(book.getFood_level());
+            mvolume.setText(book.getVolume());
+            mlevel.setText(book.getFood_level());
             this.key = key;
-
         }
     }
     class BooksAdapter extends RecyclerView.Adapter<SelectMac_feedNow_Con.BookItemView>{

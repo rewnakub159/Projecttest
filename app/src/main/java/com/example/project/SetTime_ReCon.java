@@ -36,8 +36,8 @@ public class SetTime_ReCon {
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.settime_card,parent,false));
 
-            mName = (TextView)itemView.findViewById(R.id.petname);
-            mPass = (TextView)itemView.findViewById(R.id.volume_tv);
+            mName = (TextView)itemView.findViewById(R.id.name);
+            mPass = (TextView)itemView.findViewById(R.id.volume);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
