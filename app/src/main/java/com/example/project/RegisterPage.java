@@ -106,24 +106,25 @@ if (!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(password)&&!TextUtils.isEmp
     String gender = "null";
     String type = "null";
     String breed = "null";
-    String birthday = "null";
-    Pet_DB pet_db1 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
+    String age = "null";
+    String weight = "null";
+    Pet_DB pet_db1 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight);
     reference.child(petnumber).setValue(pet_db1);
 
     reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
     petnumber = "pet2";
-    Pet_DB pet_db2 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
+    Pet_DB pet_db2 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight);
     reference.child(petnumber).setValue(pet_db2);
 
     reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
     petnumber = "pet3";
-    Pet_DB pet_db3 = new Pet_DB(petnumber,petname,gender,type,breed,birthday);
+    Pet_DB pet_db3 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight);
     reference.child(petnumber).setValue(pet_db3);
 
 
-    Toast.makeText(this,"0000",Toast.LENGTH_LONG).show();
+    Toast.makeText(this,"สมัครสมาชิกสำเร็จ",Toast.LENGTH_LONG).show();
     finish(); }
-else if (password != password2){Toast.makeText(this,"2",Toast.LENGTH_LONG).show();}
+else if (password != password2){Toast.makeText(this,"รหัสผ่านไม่ตรงกัน",Toast.LENGTH_LONG).show();}
 else{ Toast.makeText(this,"1",Toast.LENGTH_LONG).show();}
 
 

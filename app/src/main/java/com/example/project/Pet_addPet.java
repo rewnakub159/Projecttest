@@ -25,15 +25,15 @@ public class Pet_addPet extends AppCompatActivity {
         setContentView(R.layout.pet_add_pet);
 
 
-        et1 = (EditText)findViewById(R.id.petAdd_name_et1);
-        et2 = (EditText)findViewById(R.id.petAdd_breed_et2);
-        et3 = (EditText)findViewById(R.id.petAdd_age_et3);
+        et1 = (EditText)findViewById(R.id.et1);
+        et2 = (EditText)findViewById(R.id.et2);
+        et3 = (EditText)findViewById(R.id.et3);
        // et4 = (EditText)findViewById(R.id.petAdd_weigth_et4);
 
 
         Button bt1,bt2;
-        bt1 = (Button)findViewById(R.id.pet_add_bt1);
-        bt2 = (Button)findViewById(R.id.pet_add_bt2);
+        bt1 = (Button)findViewById(R.id.bt1);
+        bt2 = (Button)findViewById(R.id.bt2);
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

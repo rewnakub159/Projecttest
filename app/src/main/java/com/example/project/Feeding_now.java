@@ -29,7 +29,7 @@ public class Feeding_now extends AppCompatActivity {
 
 
         final EditText editText =(EditText)findViewById(R.id.et1);
-        Button button = (Button)findViewById(R.id.bt1);
+        Button button = (Button)findViewById(R.id.bt2);
         Button button1 = (Button)findViewById(R.id.bt2);
         reference=FirebaseDatabase.getInstance().getReference("machineprofile").child(users);
 
@@ -42,6 +42,7 @@ public class Feeding_now extends AppCompatActivity {
                if (s >= 100) {
                    reference.child(macname).child("volume").setValue(editText.getText().toString());
                    reference.child(macname).child("status").setValue("1");
+                   finish();
                }else{
                    Toast.makeText(Feeding_now.this, "ปริมาณอาหารน้อยกว่า 100 กรัม", Toast.LENGTH_LONG).show();}
 

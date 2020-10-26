@@ -23,17 +23,20 @@ public class Pet_RecycleView_Config {
         recyclerView.setAdapter(mBookAdapter);
     }
     class BookItemView extends RecyclerView.ViewHolder{
-        private TextView name;
+        private String petnumber;
+        private TextView petname;
         private TextView type;
         private TextView breed;
         private TextView gender;
+        private String weight;
+        private String age;
 
         private String key;
 
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.pet_card,parent,false));
 
-            name = (TextView)itemView.findViewById(R.id.name);
+            petname = (TextView)itemView.findViewById(R.id.name);
             type = (TextView)itemView.findViewById(R.id.volume);
             breed = (TextView)itemView.findViewById(R.id.volume_level);
             gender = (TextView)itemView.findViewById(R.id.gender_tv);
@@ -42,17 +45,26 @@ public class Pet_RecycleView_Config {
                 public void onClick(View v) {
 
                     Intent intent = new Intent(mContext,Pet_Profile.class);
-
+                    intent.putExtra("petnumber",petnumber);
+                    intent.putExtra("petname",petname.getText().toString());
+                    intent.putExtra("type",type.getText().toString());
+                    intent.putExtra("breed",breed.getText().toString());
+                    intent.putExtra("gender",gender.getText().toString());
+                    intent.putExtra("weight",weight);
+                    intent.putExtra("age",age);
                     mContext.startActivity(intent);
 
                 }
             });
         }
         public  void bind(Pet_DB book , String key){
-            name.setText(book.getPetname());
+            petnumber = book.getPetnumber();
+            petname.setText(book.getPetname());
             type.setText(book.getType());
             breed.setText(book.getBreed());
             gender.setText(book.getGender());
+            weight = book.getWeight();
+            age = book.getAge();
             this.key = key;
 
         }

@@ -5,19 +5,21 @@ public class Pet_DB {
     String petname;
     String breed;
     String gender;
-    String birthday;
+    String weight;
     String type;
+    String age;
 
     public Pet_DB() {
     }
 
-    public Pet_DB(String petnumber, String petname, String breed, String gender, String birthday, String type) {
+    public Pet_DB(String petnumber, String petname, String breed, String gender, String weight, String type, String age) {
         this.petnumber = petnumber;
         this.petname = petname;
         this.breed = breed;
         this.gender = gender;
-        this.birthday = birthday;
+        this.weight = weight;
         this.type = type;
+        this.age = age;
     }
 
     public String getPetnumber() {
@@ -52,12 +54,12 @@ public class Pet_DB {
         this.gender = gender;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getWeight() {
+        return weight;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
     public String getType() {
@@ -66,6 +68,14 @@ public class Pet_DB {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 }
 

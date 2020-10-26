@@ -9,9 +9,9 @@
 
     <View
         android:id="@+id/view10"
-        android:layout_width="361dp"
-        android:layout_height="576dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="348dp"
+        android:layout_height="533dp"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/settime_center1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,16 +21,16 @@
 
     <View
         android:id="@+id/view9"
-        android:layout_width="403dp"
-        android:layout_height="122dp"
+        android:layout_width="407dp"
+        android:layout_height="96dp"
         android:background="@drawable/settime_topbar"
         tools:layout_editor_absoluteX="-7dp"
         tools:layout_editor_absoluteY="-7dp" />
 
     <EditText
         android:id="@+id/addmac_et1"
-        android:layout_width="277dp"
-        android:layout_height="50dp"
+        android:layout_width="201dp"
+        android:layout_height="44dp"
         android:layout_marginTop="220dp"
         android:background="@drawable/register_edittext"
 
@@ -39,23 +39,23 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <Button
         android:id="@+id/scan_button"
-        android:layout_width="144dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="127dp"
+        android:layout_height="39dp"
         android:background="@drawable/button"
         android:text="QR_Code"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/addmac_et1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addmac_et1"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintTop_toTopOf="@+id/addmac_et1"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView10"
@@ -66,6 +66,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/addmac_et1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
         app:layout_constraintVertical_bias="0.0" />
@@ -99,7 +100,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/russo_one"
         android:text="เพิ่มเครื่องให้อาหาร"
         android:textColor="#FFFFFF"

@@ -42,7 +42,7 @@ public class SelectMac_cameraCon {
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(mContext, Feeding_now.class);
+                    Intent intent = new Intent(mContext, Camera.class);
                     macname = mName.getText().toString();
                     mContext.startActivity(intent);
 

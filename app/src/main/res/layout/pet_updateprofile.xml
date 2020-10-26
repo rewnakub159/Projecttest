@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Pet_addPet">
 
+
     <Button
         android:id="@+id/bt1"
         style="?android:attr/borderlessButtonStyle"
@@ -16,16 +17,15 @@
         android:fontFamily="@font/russo_one"
         android:padding="0dip"
         android:shadowColor="#202020"
-        android:text="เพิ่มสัตว์เลี้ยง"
+        android:text="บันทึก"
         android:textColor="#FFF"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt2"
-        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
-
+        app:layout_constraintVertical_bias="0.877" />
 
     <Button
         android:id="@+id/bt2"
@@ -42,10 +42,10 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bt1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/bt1"
+        app:layout_constraintVertical_bias="0.26" />
 
     <TextView
         android:id="@+id/textView25"
@@ -76,6 +76,7 @@
         app:layout_constraintVertical_bias="0.428" />
 
     <RadioGroup
+        android:id="@+id/rg1"
         android:layout_width="218dp"
         android:layout_height="98dp"
         android:orientation="horizontal"

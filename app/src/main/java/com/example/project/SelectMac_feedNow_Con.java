@@ -51,7 +51,7 @@ public class SelectMac_feedNow_Con {
         }
         public  void bind(Machine_DB book , String key){
             mName.setText(book.getName());
-            mvolume.setText(book.getVolume());
+            mvolume.setText(book.getVolume_now());
             mlevel.setText(book.getFood_level());
             this.key = key;
         }
