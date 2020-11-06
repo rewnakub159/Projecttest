@@ -52,9 +52,15 @@ public class Pet_addPet extends AppCompatActivity {
         et4 = (EditText)findViewById(R.id.et4);
 
         bt1 = (Button) findViewById(R.id.bt1);
+        bt2 = (Button) findViewById(R.id.bt2);
 
         rg1 = (RadioGroup)findViewById(R.id.rg1);
         rg2 = (RadioGroup)findViewById(R.id.rg2);
+
+        rg1.check(R.id.radioButton1);
+        type ="สุนัข";
+        rg2.check(R.id.radioButton3);
+        gender = "ผู้";
 
         rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -74,182 +80,197 @@ public class Pet_addPet extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.radioButton3:
-                        gender ="ผู้";
+                        gender = "ผู้";
                         break;
                     case R.id.radioButton4:
-                        gender ="เมีย";
+                        gender = "เมีย";
                         break;
                 }
             }
         });
 
-
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Query query = FirebaseDatabase.getInstance().getReference("pet").child(users).orderByChild("petname").equalTo(et1.getText().toString());
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.getChildrenCount() == 1) {
-                            Toast.makeText(Pet_addPet.this, "ชื่อนี้ถูกใช้แล้ว", Toast.LENGTH_LONG).show();
-                        } else {
-
-                            reference = FirebaseDatabase.getInstance().getReference("pet").child(users).child("pet1");
-                            reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                    for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
-                                        Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
-                                        if (i.getPetname().equals("null")) {
-                                            final Pet_DB pet_db = new Pet_DB();
-                                            pet_db.setPetnumber("pet1");
-                                            pet_db.setPetname(et1.getText().toString());
-                                            pet_db.setType(type);
-                                            pet_db.setGender(gender);
-                                            pet_db.setBreed(et2.getText().toString());
-                                            pet_db.setAge(et4.getText().toString());
-                                            pet_db.setWeight(et3.getText().toString());
-                                            new Pet_Firebase().updaeBook("pet1", pet_db, new Pet_Firebase.DataStatus() {
-                                                @Override
-                                                public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
-
-                                                }
-
-                                                @Override
-                                                public void DataIsInserted() {
-
-                                                }
-
-                                                @Override
-                                                public void DataIsUpdated() {
-                                                    Toast.makeText(Pet_addPet.this,"แก้ไขข้อมูลสำเร็จ",Toast.LENGTH_LONG).show();
-                                                }
-
-                                                @Override
-                                                public void DataIsDeleted() {
-
-                                                }
-                                            });
-
-
-
-                                        }else{reference = FirebaseDatabase.getInstance().getReference("pet").child(users).child("pet2");
-                                            reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                                    for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
-                                                        Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
-                                                        if (i.getPetname().equals("null")) {
-                                                            final Pet_DB pet_db = new Pet_DB();
-                                                            pet_db.setPetnumber("pet2");
-                                                            pet_db.setPetname(et1.getText().toString());
-                                                            pet_db.setType(type);
-                                                            pet_db.setGender(gender);
-                                                            pet_db.setBreed(et2.getText().toString());
-                                                            pet_db.setAge(et4.getText().toString());
-                                                            pet_db.setWeight(et3.getText().toString());
-                                                            new Pet_Firebase().updaeBook("pet2", pet_db, new Pet_Firebase.DataStatus() {
-                                                                @Override
-                                                                public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
-
-                                                                }
-
-                                                                @Override
-                                                                public void DataIsInserted() {
-
-                                                                }
-
-                                                                @Override
-                                                                public void DataIsUpdated() {
-                                                                    Toast.makeText(Pet_addPet.this,"แก้ไขข้อมูลสำเร็จ",Toast.LENGTH_LONG).show();
-                                                                }
-
-                                                                @Override
-                                                                public void DataIsDeleted() {
-
-                                                                }
-                                                            });
-
-
-
-                                                        }else{reference = FirebaseDatabase.getInstance().getReference("pet").child(users).child("pet3");
-                                                            reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                @Override
-                                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                                                    for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
-                                                                        Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
-                                                                        if (i.getPetname().equals("null")) {
-                                                                            final Pet_DB pet_db = new Pet_DB();
-                                                                            pet_db.setPetnumber("pet3");
-                                                                            pet_db.setPetname(et1.getText().toString());
-                                                                            pet_db.setType(type);
-                                                                            pet_db.setGender(gender);
-                                                                            pet_db.setBreed(et2.getText().toString());
-                                                                            pet_db.setAge(et4.getText().toString());
-                                                                            pet_db.setWeight(et3.getText().toString());
-                                                                            new Pet_Firebase().updaeBook("pet3", pet_db, new Pet_Firebase.DataStatus() {
-                                                                                @Override
-                                                                                public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
-
-                                                                                }
-
-                                                                                @Override
-                                                                                public void DataIsInserted() {
-
-                                                                                }
-
-                                                                                @Override
-                                                                                public void DataIsUpdated() {
-                                                                                    Toast.makeText(Pet_addPet.this,"แก้ไขข้อมูลสำเร็จ",Toast.LENGTH_LONG).show();
-                                                                                }
-
-                                                                                @Override
-                                                                                public void DataIsDeleted() {
-
-                                                                                }
-                                                                            });
-                                                                        }else{Toast.makeText(Pet_addPet.this,"สัตว์เลี้ยงเต็มแล้ว",Toast.LENGTH_LONG).show();}
-                                                                    }
-
-                                                                }
-                                                                @Override
-                                                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                                                }
-                                                            });}
-                                                    }
-
-                                                }
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                                }
-                                            });}
-                                        }
-
-                                }
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-
-
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
+                if (!TextUtils.isEmpty(et1.getText())&&!TextUtils.isEmpty(et2.getText())&&!TextUtils.isEmpty(et3.getText())&&!TextUtils.isEmpty(et4.getText())){
+                    addPet();
+                    finish();
+                }else{Toast.makeText(Pet_addPet.this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_LONG).show();}
 
             }
         });
 
     }
-        }
+     public void addPet(){
+
+         Query query = FirebaseDatabase.getInstance().getReference("pet").child(users).orderByChild("petname").equalTo(et1.getText().toString());
+         query.addListenerForSingleValueEvent(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                 if (dataSnapshot.getChildrenCount() == 1) {
+                     Toast.makeText(Pet_addPet.this, "ชื่อนี้ถูกใช้แล้ว", Toast.LENGTH_LONG).show();
+                 } else {
+
+                     reference = FirebaseDatabase.getInstance().getReference("pet").child(users).child("pet1");
+                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                         @Override
+                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                             for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                                 Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
+                                 if (i.getPetname().equals("null")) {
+                                     final Pet_DB pet_db = new Pet_DB();
+                                     pet_db.setPetnumber("pet1");
+                                     pet_db.setPetname(et1.getText().toString());
+                                     pet_db.setType(type);
+                                     pet_db.setGender(gender);
+                                     pet_db.setBreed(et2.getText().toString());
+                                     pet_db.setAge(et4.getText().toString());
+                                     pet_db.setWeight(et3.getText().toString());
+                                     new Pet_Firebase().updaeBook("pet1", pet_db, new Pet_Firebase.DataStatus() {
+                                         @Override
+                                         public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
+
+                                         }
+
+                                         @Override
+                                         public void DataIsInserted() {
+
+                                         }
+
+                                         @Override
+                                         public void DataIsUpdated() {
+                                             Toast.makeText(Pet_addPet.this,"แก้ไขข้อมูลสำเร็จ",Toast.LENGTH_LONG).show();
+                                         }
+
+                                         @Override
+                                         public void DataIsDeleted() {
+
+                                         }
+                                     });
+
+
+
+                                 }else{reference = FirebaseDatabase.getInstance().getReference("pet").child(users).child("pet2");
+                                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                         @Override
+                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                             for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                                                 Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
+                                                 if (i.getPetname().equals("null")) {
+                                                     final Pet_DB pet_db = new Pet_DB();
+                                                     pet_db.setPetnumber("pet2");
+                                                     pet_db.setPetname(et1.getText().toString());
+                                                     pet_db.setType(type);
+                                                     pet_db.setGender(gender);
+                                                     pet_db.setBreed(et2.getText().toString());
+                                                     pet_db.setAge(et4.getText().toString());
+                                                     pet_db.setWeight(et3.getText().toString());
+                                                     new Pet_Firebase().updaeBook("pet2", pet_db, new Pet_Firebase.DataStatus() {
+                                                         @Override
+                                                         public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
+
+                                                         }
+
+                                                         @Override
+                                                         public void DataIsInserted() {
+
+                                                         }
+
+                                                         @Override
+                                                         public void DataIsUpdated() {
+                                                             Toast.makeText(Pet_addPet.this,"แก้ไขข้อมูลสำเร็จ",Toast.LENGTH_LONG).show();
+                                                         }
+
+                                                         @Override
+                                                         public void DataIsDeleted() {
+
+                                                         }
+                                                     });
+
+
+
+                                                 }else{reference = FirebaseDatabase.getInstance().getReference("pet").child(users).child("pet3");
+                                                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                         @Override
+                                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                                             for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                                                                 Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
+                                                                 if (i.getPetname().equals("null")) {
+                                                                     final Pet_DB pet_db = new Pet_DB();
+                                                                     pet_db.setPetnumber("pet3");
+                                                                     pet_db.setPetname(et1.getText().toString());
+                                                                     pet_db.setType(type);
+                                                                     pet_db.setGender(gender);
+                                                                     pet_db.setBreed(et2.getText().toString());
+                                                                     pet_db.setAge(et4.getText().toString());
+                                                                     pet_db.setWeight(et3.getText().toString());
+                                                                     new Pet_Firebase().updaeBook("pet3", pet_db, new Pet_Firebase.DataStatus() {
+                                                                         @Override
+                                                                         public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
+
+                                                                         }
+
+                                                                         @Override
+                                                                         public void DataIsInserted() {
+
+                                                                         }
+
+                                                                         @Override
+                                                                         public void DataIsUpdated() {
+                                                                             Toast.makeText(Pet_addPet.this,"แก้ไขข้อมูลสำเร็จ",Toast.LENGTH_LONG).show();
+                                                                         }
+
+                                                                         @Override
+                                                                         public void DataIsDeleted() {
+
+                                                                         }
+                                                                     });
+                                                                 }else{Toast.makeText(Pet_addPet.this,"สัตว์เลี้ยงเต็มแล้ว",Toast.LENGTH_LONG).show();}
+                                                             }
+
+                                                         }
+                                                         @Override
+                                                         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                         }
+                                                     });}
+                                             }
+
+                                         }
+                                         @Override
+                                         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                         }
+                                     });}
+                             }
+
+                         }
+                         @Override
+                         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                         }
+                     });
+
+
+                 }
+             }
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+             }
+         });
+
+
+     }
+     }
+
+

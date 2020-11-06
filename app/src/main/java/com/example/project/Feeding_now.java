@@ -30,7 +30,7 @@ public class Feeding_now extends AppCompatActivity {
 
         final EditText editText =(EditText)findViewById(R.id.et1);
         Button button = (Button)findViewById(R.id.bt2);
-        Button button1 = (Button)findViewById(R.id.bt2);
+        Button button1 = (Button)findViewById(R.id.feednow_bt2);
         reference=FirebaseDatabase.getInstance().getReference("machineprofile").child(users);
 
        button.setOnClickListener(new View.OnClickListener() {

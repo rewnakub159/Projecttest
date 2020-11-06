@@ -21,6 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class QrCode_addmachine extends AppCompatActivity {
     private DatabaseReference reference,reference2,reference3,reference4;
     private Button scan_button,bt1,bt2,bt3;
@@ -97,7 +101,10 @@ public class QrCode_addmachine extends AppCompatActivity {
                                         String food_level = "null";
                                         String history = "null";
                                         String status = "0";
-                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now,food_level,history);
+                                        String notification = "0";
+                                        String timeno ="00:00";
+                                        String createdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now,food_level,history,notification,timeno,createdate);
                                         reference2.child(name).setValue(machine_db);
 
                                         reference3= FirebaseDatabase.getInstance().getReference("history").child(users);

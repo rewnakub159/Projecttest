@@ -26,23 +26,30 @@ public class Machine_Profile_con {
     }
     class BookItemView extends RecyclerView.ViewHolder{
         private TextView mName;
-        private TextView mPass;
-        private TextView mEmail;
-
+        private TextView volume_now;
+        private TextView food_level;
         private String key;
+        private String timeno;
+        private String createdate;
+
+
 
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
             mName = (TextView)itemView.findViewById(R.id.name);
-            mPass = (TextView)itemView.findViewById(R.id.volume);
-            mEmail = (TextView)itemView.findViewById(R.id.volume_level);
+            volume_now = (TextView)itemView.findViewById(R.id.volume);
+            food_level = (TextView)itemView.findViewById(R.id.volume_level);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     Intent intent = new Intent(mContext,Machine_profile.class);
-                    macname = mName.getText().toString();
+                    intent.putExtra("macname",mName.getText().toString());
+                    intent.putExtra("volume_now",volume_now.getText().toString());
+                    intent.putExtra("food_level",food_level.getText().toString());
+                    intent.putExtra("timeno",timeno);
+                    intent.putExtra("createdate",createdate);
                     mContext.startActivity(intent);
 
                 }
@@ -50,8 +57,10 @@ public class Machine_Profile_con {
         }
         public  void bind(Machine_DB book , String key){
             mName.setText(book.getName());
-            mPass.setText(book.getVolume());
-            mEmail.setText(book.getVolume_now());
+            volume_now.setText(book.getVolume_now());
+            food_level.setText(book.getFood_level());
+            timeno = book.getTimeno();
+            createdate = book.getCreatedate();
             this.key = key;
 
         }

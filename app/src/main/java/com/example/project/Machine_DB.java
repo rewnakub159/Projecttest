@@ -7,17 +7,23 @@ public class Machine_DB {
     String volume_now;
     String food_level;
     String history;
+    String notification;
+    String timeno;
+    String createdate;
 
     public Machine_DB() {
     }
 
-    public Machine_DB(String name, String status, String volume, String volume_now, String food_level, String history) {
+    public Machine_DB(String name, String status, String volume, String volume_now, String food_level, String history, String notification, String timeno, String createdate) {
         this.name = name;
         this.status = status;
         this.volume = volume;
         this.volume_now = volume_now;
         this.food_level = food_level;
         this.history = history;
+        this.notification = notification;
+        this.timeno = timeno;
+        this.createdate = createdate;
     }
 
     public String getName() {
@@ -66,5 +72,29 @@ public class Machine_DB {
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    public String getNotification() {
+        return notification;
+    }
+
+    public void setNotification(String notification) {
+        this.notification = notification;
+    }
+
+    public String getTimeno() {
+        return timeno;
+    }
+
+    public void setTimeno(String timeno) {
+        this.timeno = timeno;
+    }
+
+    public String getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(String createdate) {
+        this.createdate = createdate;
     }
 }

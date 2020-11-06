@@ -63,4 +63,14 @@ public class Machine_Profile_Firebase {
             }
         });
     }
+    public  void deleteBook(String key,final Machine_Profile_Firebase.DataStatus dataStatus){
+        mReferenceBook.child(key).setValue(null)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        dataStatus.DataIsDeleted();
+                    }
+                });
+
+    }
 }

@@ -30,7 +30,6 @@ public class Pet_RecycleView_Config {
         private TextView gender;
         private String weight;
         private String age;
-
         private String key;
 
         public BookItemView(ViewGroup parent){
