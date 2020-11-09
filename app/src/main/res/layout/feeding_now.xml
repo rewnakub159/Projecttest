@@ -53,8 +53,8 @@
 
     <TextView
         android:id="@+id/addsettime_tv5"
-        android:layout_width="253dp"
-        android:layout_height="44dp"
+        android:layout_width="267dp"
+        android:layout_height="51dp"
         android:fontFamily="@font/russo_one"
         android:text="ให้อาหารทันที"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
