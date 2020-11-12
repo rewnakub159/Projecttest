@@ -2,6 +2,7 @@ package com.example.project;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class SelectMac_cameraCon {
         private TextView mEmail;
 
         private String key;
-
+        String camera;
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
 
@@ -41,10 +42,8 @@ public class SelectMac_cameraCon {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    clicked_link(camera);
 
-                    Intent intent = new Intent(mContext, Camera.class);
-                    macname = mName.getText().toString();
-                    mContext.startActivity(intent);
 
                 }
             });
@@ -53,6 +52,7 @@ public class SelectMac_cameraCon {
             mName.setText(book.getName());
             mPass.setText(book.getVolume());
             mEmail.setText(book.getFood_level());
+            camera = book.getCameralink();
             this.key = key;
 
         }
@@ -81,5 +81,10 @@ public class SelectMac_cameraCon {
         public int getItemCount() {
             return mBookList.size();
         }
+    }
+    public void clicked_link(String url){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        mContext.startActivity(intent);
     }
 }

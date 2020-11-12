@@ -103,8 +103,9 @@ public class QrCode_addmachine extends AppCompatActivity {
                                         String status = "0";
                                         String notification = "0";
                                         String timeno ="00:00";
+                                        String cameralink ="null";
                                         String createdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now,food_level,history,notification,timeno,createdate);
+                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now,food_level,history,notification,timeno,createdate,cameralink);
                                         reference2.child(name).setValue(machine_db);
 
                                         reference3= FirebaseDatabase.getInstance().getReference("history").child(users);

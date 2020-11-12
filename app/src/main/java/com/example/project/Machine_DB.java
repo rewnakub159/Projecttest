@@ -10,11 +10,12 @@ public class Machine_DB {
     String notification;
     String timeno;
     String createdate;
+    String cameralink;
 
     public Machine_DB() {
     }
 
-    public Machine_DB(String name, String status, String volume, String volume_now, String food_level, String history, String notification, String timeno, String createdate) {
+    public Machine_DB(String name, String status, String volume, String volume_now, String food_level, String history, String notification, String timeno, String createdate, String cameralink) {
         this.name = name;
         this.status = status;
         this.volume = volume;
@@ -24,6 +25,7 @@ public class Machine_DB {
         this.notification = notification;
         this.timeno = timeno;
         this.createdate = createdate;
+        this.cameralink = cameralink;
     }
 
     public String getName() {
@@ -96,5 +98,13 @@ public class Machine_DB {
 
     public void setCreatedate(String createdate) {
         this.createdate = createdate;
+    }
+
+    public String getCameralink() {
+        return cameralink;
+    }
+
+    public void setCameralink(String cameralink) {
+        this.cameralink = cameralink;
     }
 }

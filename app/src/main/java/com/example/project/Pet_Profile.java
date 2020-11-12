@@ -1,5 +1,6 @@
 package com.example.project;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,10 +13,18 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 public class Pet_Profile extends AppCompatActivity {
-
+    Home_Menu homeMenu = new Home_Menu();
+    String users = homeMenu.user.toString();
+    DatabaseReference reference;
     TextView tvpetname;
     TextView tvbreed;
     TextView tvgender;
@@ -36,13 +45,14 @@ public class Pet_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet__profile);
 
-        petnumber = getIntent().getStringExtra("petnumber");
-        petname = getIntent().getStringExtra("petname");
+
+       petnumber = getIntent().getStringExtra("petnumber");
+        /**petname = getIntent().getStringExtra("petname");
         breed = getIntent().getStringExtra("breed");
         gender = getIntent().getStringExtra("gender");
         weight = getIntent().getStringExtra("weight");
         type = getIntent().getStringExtra("type");
-        age = getIntent().getStringExtra("age");
+        age = getIntent().getStringExtra("age");**/
 
         tvpetname = (TextView)findViewById(R.id.tvpetname);
         tvbreed = (TextView)findViewById(R.id.tvbreed);
@@ -55,12 +65,35 @@ public class Pet_Profile extends AppCompatActivity {
         imb1 =(ImageButton)findViewById(R.id.imageButton1);
         imb2 =(ImageButton)findViewById(R.id.imageButton2);
 
-        tvpetname.setText(petname);
-        tvbreed.setText(breed);
-        tvgender.setText(gender);
-        tvweight.setText(weight);
-        tvtype.setText(type);
-        tvage.setText(age);
+
+
+        reference= FirebaseDatabase.getInstance().getReference("pet").child(users).child(petnumber);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
+                petname = i.getPetname();
+                breed = i.getBreed();
+                gender = i.getGender();
+                weight = i.getWeight();
+                type = i.getType();
+                age = i.getAge();
+                tvpetname.setText(petname);
+                tvbreed.setText(breed);
+                tvgender.setText(gender);
+                tvweight.setText(weight);
+                tvtype.setText(type);
+                tvage.setText(age);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override

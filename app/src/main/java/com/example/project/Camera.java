@@ -2,30 +2,36 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class Camera extends AppCompatActivity {
 
-    VideoView videoView;
+    Button bt1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
+        bt1 = (Button)findViewById(R.id.bt1);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clicked_link("http://feeding.ddns.net:8081/");
 
-        MediaController mediaController = new MediaController(this);
+            }
+        });
 
-        videoView = (VideoView)findViewById(R.id.videoView);
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
-        String url ="feeding.ddns.net:8081";
-        String u1 = "https://www.youtube.com/watch?v=HBF7k3DXkls";
-        videoView.setVideoURI(Uri.parse(u1));
-        videoView.requestFocus();
-        videoView.start();
 
+    }
+    public void clicked_link(String url){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 }
