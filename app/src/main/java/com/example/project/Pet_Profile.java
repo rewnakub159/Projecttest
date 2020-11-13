@@ -39,7 +39,7 @@ public class Pet_Profile extends AppCompatActivity {
     String type;
     String age;
     Button bt1;
-    ImageButton imb1,imb2;
+    ImageButton imb1,imb2,imb3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,7 @@ public class Pet_Profile extends AppCompatActivity {
         bt1=(Button)findViewById(R.id.bt2);
         imb1 =(ImageButton)findViewById(R.id.imageButton1);
         imb2 =(ImageButton)findViewById(R.id.imageButton2);
+        imb3 =(ImageButton)findViewById(R.id.imageButton3);
 
 
 
@@ -112,6 +113,16 @@ public class Pet_Profile extends AppCompatActivity {
                 intent.putExtra("gender",gender);
                 intent.putExtra("weight",weight);
                 intent.putExtra("age",age);
+                startActivity(intent);
+            }
+        });
+        imb3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Pet_Profile.this,PetTag.class);
+                intent.putExtra("petnumber",petnumber);
+                intent.putExtra("petname",petname);
                 startActivity(intent);
             }
         });

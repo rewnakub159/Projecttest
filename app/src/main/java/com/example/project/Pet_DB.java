@@ -8,11 +8,13 @@ public class Pet_DB {
     String weight;
     String type;
     String age;
+    String id;
+    String tagstatus;
 
     public Pet_DB() {
     }
 
-    public Pet_DB(String petnumber, String petname, String breed, String gender, String weight, String type, String age) {
+    public Pet_DB(String petnumber, String petname, String breed, String gender, String weight, String type, String age, String id, String tagstatus) {
         this.petnumber = petnumber;
         this.petname = petname;
         this.breed = breed;
@@ -20,6 +22,8 @@ public class Pet_DB {
         this.weight = weight;
         this.type = type;
         this.age = age;
+        this.id = id;
+        this.tagstatus = tagstatus;
     }
 
     public String getPetnumber() {
@@ -76,6 +80,22 @@ public class Pet_DB {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTagstatus() {
+        return tagstatus;
+    }
+
+    public void setTagstatus(String tagstatus) {
+        this.tagstatus = tagstatus;
     }
 }
 
