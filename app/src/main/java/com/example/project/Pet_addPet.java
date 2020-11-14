@@ -51,7 +51,7 @@ public class Pet_addPet extends AppCompatActivity {
         et3 = (EditText) findViewById(R.id.et3);
         et4 = (EditText)findViewById(R.id.et4);
 
-        bt1 = (Button) findViewById(R.id.bt1);
+        bt1 = (Button) findViewById(R.id.dibt1);
         bt2 = (Button) findViewById(R.id.bt2);
 
         rg1 = (RadioGroup)findViewById(R.id.rg1);
@@ -133,6 +133,8 @@ public class Pet_addPet extends AppCompatActivity {
                                      pet_db.setBreed(et2.getText().toString());
                                      pet_db.setAge(et4.getText().toString());
                                      pet_db.setWeight(et3.getText().toString());
+                                     pet_db.setId("0");
+                                     pet_db.setTagstatus("0");
                                      new Pet_Firebase().updaeBook("pet1", pet_db, new Pet_Firebase.DataStatus() {
                                          @Override
                                          public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
@@ -173,6 +175,8 @@ public class Pet_addPet extends AppCompatActivity {
                                                      pet_db.setBreed(et2.getText().toString());
                                                      pet_db.setAge(et4.getText().toString());
                                                      pet_db.setWeight(et3.getText().toString());
+                                                     pet_db.setId("0");
+                                                     pet_db.setTagstatus("0");
                                                      new Pet_Firebase().updaeBook("pet2", pet_db, new Pet_Firebase.DataStatus() {
                                                          @Override
                                                          public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
@@ -213,6 +217,8 @@ public class Pet_addPet extends AppCompatActivity {
                                                                      pet_db.setBreed(et2.getText().toString());
                                                                      pet_db.setAge(et4.getText().toString());
                                                                      pet_db.setWeight(et3.getText().toString());
+                                                                     pet_db.setId("0");
+                                                                     pet_db.setTagstatus("0");
                                                                      new Pet_Firebase().updaeBook("pet3", pet_db, new Pet_Firebase.DataStatus() {
                                                                          @Override
                                                                          public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {

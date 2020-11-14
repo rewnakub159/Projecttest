@@ -9,12 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.List;
 
 public class Machine_profile extends AppCompatActivity {
 
@@ -56,7 +53,7 @@ public class Machine_profile extends AppCompatActivity {
         tv4.setText(createdate);
         tv5.setText(timeno);
 
-        bt1 = (Button)findViewById(R.id.bt1);
+        bt1 = (Button)findViewById(R.id.dibt1);
 
         imb1 = (ImageButton)findViewById(R.id.imb1);
 

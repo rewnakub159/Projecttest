@@ -7,7 +7,7 @@
     tools:context=".Pet_addPet">
 
     <Button
-        android:id="@+id/bt1"
+        android:id="@+id/dibt1"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="164dp"
         android:layout_height="44dp"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bt1"
+        app:layout_constraintTop_toTopOf="@+id/dibt1"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView

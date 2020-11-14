@@ -38,6 +38,8 @@ public class Pet_Profile extends AppCompatActivity {
     String weight;
     String type;
     String age;
+    String id;
+    String tagstatus;
     Button bt1;
     ImageButton imb1,imb2,imb3;
     @Override
@@ -79,6 +81,8 @@ public class Pet_Profile extends AppCompatActivity {
                 weight = i.getWeight();
                 type = i.getType();
                 age = i.getAge();
+                id = i.getId();
+                tagstatus = i.getTagstatus();
                 tvpetname.setText(petname);
                 tvbreed.setText(breed);
                 tvgender.setText(gender);
@@ -113,6 +117,8 @@ public class Pet_Profile extends AppCompatActivity {
                 intent.putExtra("gender",gender);
                 intent.putExtra("weight",weight);
                 intent.putExtra("age",age);
+                intent.putExtra("id",id);
+                intent.putExtra("tagstatus",tagstatus);
                 startActivity(intent);
             }
         });

@@ -85,7 +85,7 @@
                         app:srcCompat="@drawable/ic_pet_food" />
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/tv1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -120,7 +120,7 @@
                         app:srcCompat="@drawable/ic_food" />
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/tv1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -162,7 +162,7 @@
                         app:srcCompat="@drawable/ic_pet_house" />
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/tv1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -197,7 +197,7 @@
                         app:srcCompat="@drawable/ic_roaster" />
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/tv1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"

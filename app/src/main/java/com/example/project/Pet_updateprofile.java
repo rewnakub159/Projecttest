@@ -1,6 +1,5 @@
 package com.example.project;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,12 +13,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.List;
 
 public class Pet_updateprofile extends AppCompatActivity {
@@ -32,6 +25,8 @@ public class Pet_updateprofile extends AppCompatActivity {
     String weight;
     String type;
     String age;
+    String id;
+    String tagstatus;
     EditText etpetname;
     EditText etbreed;
     EditText etweight;
@@ -54,6 +49,8 @@ public class Pet_updateprofile extends AppCompatActivity {
         weight = getIntent().getStringExtra("weight");
         type = getIntent().getStringExtra("type");
         age = getIntent().getStringExtra("age");
+        id = getIntent().getStringExtra("id");
+        tagstatus = getIntent().getStringExtra("tagstatus");
 
         etpetname = (EditText)findViewById(R.id.et1);
         etbreed = (EditText)findViewById(R.id.et2);
@@ -63,7 +60,7 @@ public class Pet_updateprofile extends AppCompatActivity {
         rg1 = (RadioGroup)findViewById(R.id.rg1);
         rg2 = (RadioGroup)findViewById(R.id.rg2);
 
-        bt1 = (Button) findViewById(R.id.bt1);
+        bt1 = (Button) findViewById(R.id.dibt1);
         bt2 = (Button) findViewById(R.id.bt2);
 
         if(type.equals("สุนัข")){
@@ -122,7 +119,7 @@ public class Pet_updateprofile extends AppCompatActivity {
            public void onClick(View v) {
 
                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-               builder.setTitle("ลบรายการ");
+               builder.setTitle("บันทึกการเปลี่ยนแปลง");
                builder.setMessage("คุณต้องการบันทึกการเปลี่ยนแปลงครั้งนี้ใช่หรื่อไม่");
                builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
                    @Override
@@ -135,6 +132,8 @@ public class Pet_updateprofile extends AppCompatActivity {
                        pet_db.setBreed(etbreed.getText().toString());
                        pet_db.setAge(etage.getText().toString());
                        pet_db.setWeight(etweight.getText().toString());
+                       pet_db.setTagstatus(tagstatus);
+                       pet_db.setId(id);
                        new Pet_Firebase().updaeBook(petnumber, pet_db, new Pet_Firebase.DataStatus() {
                            @Override
                            public void DataIsLoaded(List<Pet_DB> books, List<String> keys) {
