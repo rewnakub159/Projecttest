@@ -115,7 +115,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                                         reference.child(et1.getText().toString()).child("username").setValue(users);
 
 
-                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                         String settime = "settime1";
                                                         String volume = "0";
                                                         String time = "00:00";
@@ -124,7 +124,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                                         reference2.child(settime).setValue(setTime_db);
 
 
-                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                         settime = "settime2";
                                                         SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
                                                         reference2.child(settime).setValue(setTime_db2);
@@ -132,19 +132,19 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                         settime = "settime3";
                                                         SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
                                                         reference2.child(settime).setValue(setTime_db3);
 
 
-                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                         settime = "settime4";
                                                         SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
                                                         reference2.child(settime).setValue(setTime_db4);
 
 
-                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                         settime = "settime5";
                                                         SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
                                                         reference2.child(settime).setValue(setTime_db5);
@@ -199,7 +199,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                                                         reference.child(et1.getText().toString()).child("status").setValue("use");
                                                                         reference.child(et1.getText().toString()).child("username").setValue(users);
 
-                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                         String settime = "settime1";
                                                                         String volume = "0";
                                                                         String time = "00:00";
@@ -208,7 +208,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                                                         reference2.child(settime).setValue(setTime_db);
 
 
-                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                         settime = "settime2";
                                                                         SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
                                                                         reference2.child(settime).setValue(setTime_db2);
@@ -216,19 +216,19 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                         settime = "settime3";
                                                                         SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
                                                                         reference2.child(settime).setValue(setTime_db3);
 
 
-                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                         settime = "settime4";
                                                                         SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
                                                                         reference2.child(settime).setValue(setTime_db4);
 
 
-                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                         settime = "settime5";
                                                                         SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
                                                                         reference2.child(settime).setValue(setTime_db5);
@@ -284,7 +284,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                                                                         reference.child(et1.getText().toString()).child("username").setValue(users);
 
 
-                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                                         String settime = "settime1";
                                                                                         String volume = "0";
                                                                                         String time = "00:00";
@@ -293,7 +293,7 @@ public class QrCode_addmachine extends AppCompatActivity {
                                                                                         reference2.child(settime).setValue(setTime_db);
 
 
-                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                                         settime = "settime2";
                                                                                         SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
                                                                                         reference2.child(settime).setValue(setTime_db2);
@@ -301,19 +301,19 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                                         settime = "settime3";
                                                                                         SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
                                                                                         reference2.child(settime).setValue(setTime_db3);
 
 
-                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                                         settime = "settime4";
                                                                                         SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
                                                                                         reference2.child(settime).setValue(setTime_db4);
 
 
-                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(et1.getText().toString());
                                                                                         settime = "settime5";
                                                                                         SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
                                                                                         reference2.child(settime).setValue(setTime_db5);
@@ -399,7 +399,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                        Toast.makeText(QrCode_addmachine.this, "เพื่อมเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QrCode_addmachine.this, "เพิ่มเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
 
                                     }
                                 }

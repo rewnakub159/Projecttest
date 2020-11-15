@@ -12,22 +12,22 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 public class Machine_profile extends AppCompatActivity {
 
+    final Machine_DB machine_db = new Machine_DB();
+
     Home_Menu homeMenu = new Home_Menu();
     String users = homeMenu.user.toString();
-
-    final Machine_DB machine_db = new Machine_DB();
 
     String macname;
     String volume_now;
     String food_level;
     String timeno;
-    String createdate;
-    String macnumber;
+    String createdate,macnumber;
 
     TextView tv1,tv2,tv3,tv4,tv5;
 
@@ -40,12 +40,13 @@ public class Machine_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.machine_profile);
 
-        macnumber = getIntent().getStringExtra("macnumber");
+        macnumber= getIntent().getStringExtra("macnumber");
         macname = getIntent().getStringExtra("macname");
         volume_now = getIntent().getStringExtra("volume_now");
         food_level = getIntent().getStringExtra("food_level");
         timeno = getIntent().getStringExtra("timeno");
         createdate = getIntent().getStringExtra("createdate");
+
 
         tv1 = (TextView)findViewById(R.id.textView1);
         tv2 = (TextView)findViewById(R.id.textView2);
@@ -79,6 +80,7 @@ public class Machine_profile extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+
                         machine_db.setMacnumber(macnumber);
                         machine_db.setName("null");
                         machine_db.setVolume("null");
@@ -111,6 +113,14 @@ public class Machine_profile extends AppCompatActivity {
 
                             }
                         });
+
+
+                        reference = FirebaseDatabase.getInstance().getReference().child("time").child(macname);
+                        reference.removeValue();
+
+                        reference=FirebaseDatabase.getInstance().getReference("machine2");
+                        reference.child(macname).child("status").setValue("not");
+                        reference.child(macname).child("username").setValue("null");
 
 
                         finish();
