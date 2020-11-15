@@ -1,7 +1,11 @@
 package com.example.project;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +14,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import com.google.firebase.database.DatabaseReference;
 
 public class Home_Menu extends AppCompatActivity {
     public static String user;
@@ -17,11 +25,43 @@ public class Home_Menu extends AppCompatActivity {
     Button bt1;
     CardView c1,c2,c3,c4,c5;
 
+    DatabaseReference reference;
+
+    public static final String CHANNEL_1_ID = "channel1";
+    public static final String CHANNEL_2_ID = "channel2";
+
+    private NotificationManagerCompat notificationManager;
+
     SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_menu);
+
+        notificationManager = NotificationManagerCompat.from(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel1 = new NotificationChannel(
+                    CHANNEL_1_ID,
+                    "Channel 1",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel1.setDescription("This is Channel 1");
+            NotificationChannel channel2 = new NotificationChannel(
+                    CHANNEL_2_ID,
+                    "Channel 2",
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            channel2.setDescription("This is Channel 2");
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel1);
+            manager.createNotificationChannel(channel2);
+        }
+
+
+            noti1();
+
+
 
         c1 = (CardView)findViewById(R.id.homecard_feednow);
         c2 = (CardView)findViewById(R.id.homecard_settime);
@@ -35,6 +75,8 @@ public class Home_Menu extends AppCompatActivity {
         String username = sessionManager.getUsername();
         tv1.setText(username);
         user = tv1.getText().toString();
+
+
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +103,10 @@ public class Home_Menu extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+
+
+
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,5 +138,15 @@ public class Home_Menu extends AppCompatActivity {
 
             }
         });
+    }
+    public void noti1() {
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_food)
+                .setContentTitle("title")
+                .setContentText("message")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManager.notify(1, notification);
     }
 }

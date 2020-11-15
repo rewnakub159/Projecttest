@@ -42,7 +42,9 @@ public class SelectMac_Firebase {
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
                     Machine_DB i = keyNode.getValue(Machine_DB.class);
-                    books.add(i);
+                    if (i.getName().equals("null")){
+                    }else { books.add(i);
+                    }
                 }
                 dataStatus.DataIsLoaded(books ,keys);          }
 
@@ -62,5 +64,14 @@ public class SelectMac_Firebase {
                 dataStatus.DataIsInserted();
             }
         });
+    }
+    public void updaeBook(String key, Machine_DB book , final SelectMac_Firebase.DataStatus dataStatus){
+        mReferenceBook.child(key).setValue(book)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        dataStatus.DataIsUpdated();
+                    }
+                });
     }
 }

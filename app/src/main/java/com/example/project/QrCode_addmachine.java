@@ -1,8 +1,5 @@
 package com.example.project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +23,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class QrCode_addmachine extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class QrCode_addmachine extends AppCompatActivity {
     private Button scan_button,bt1,bt2,bt3;
     EditText et1;
     TextView tv1,tv2;
-    Machine_DB machine_db;
+    final Machine_DB machine_db = new Machine_DB();
     Home_Menu loginPage1 = new Home_Menu();
     String users = loginPage1.user.toString();
     @Override
@@ -87,6 +88,304 @@ public class QrCode_addmachine extends AppCompatActivity {
                                     if (userType.equals("use")) {
                                         Toast.makeText(QrCode_addmachine.this, "เครื่องนี้ได้ถูกใช้ไปแล้ว", Toast.LENGTH_LONG).show();
                                     }else{
+
+
+
+                                        reference = FirebaseDatabase.getInstance().getReference("machineprofile").child(users).child("mac1");
+                                        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                                                    Machine_DB i = dataSnapshot.getValue(Machine_DB.class);
+                                                    if (i.getName().equals("null")) {
+                                                        machine_db.setMacnumber("mac1");
+                                                        machine_db.setName(et1.getText().toString());
+                                                        machine_db.setVolume("null");
+                                                        machine_db.setVolume_now("null");
+                                                        machine_db.setFood_level("null");
+                                                        machine_db.setHistory("null");
+                                                        machine_db.setStatus("0");
+                                                        machine_db.setNotification("0");
+                                                        machine_db.setTimeno("00:00");
+                                                        machine_db.setCameralink("null");
+                                                        machine_db.setCreatedate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+
+                                                        reference=FirebaseDatabase.getInstance().getReference("machine2");
+                                                        reference.child(et1.getText().toString()).child("status").setValue("use");
+                                                        reference.child(et1.getText().toString()).child("username").setValue(users);
+
+
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        String settime = "settime1";
+                                                        String volume = "0";
+                                                        String time = "00:00";
+                                                        String status = "0";
+                                                        SetTime_Db setTime_db = new SetTime_Db(settime,time,volume,status);
+                                                        reference2.child(settime).setValue(setTime_db);
+
+
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        settime = "settime2";
+                                                        SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
+                                                        reference2.child(settime).setValue(setTime_db2);
+
+
+
+
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        settime = "settime3";
+                                                        SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
+                                                        reference2.child(settime).setValue(setTime_db3);
+
+
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        settime = "settime4";
+                                                        SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
+                                                        reference2.child(settime).setValue(setTime_db4);
+
+
+                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac1");
+                                                        settime = "settime5";
+                                                        SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
+                                                        reference2.child(settime).setValue(setTime_db5);
+
+
+                                                        new SelectMac_Firebase().updaeBook("mac1", machine_db, new SelectMac_Firebase.DataStatus() {
+                                                            @Override
+                                                            public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
+
+                                                            }
+
+                                                            @Override
+                                                            public void DataIsInserted() {
+
+                                                            }
+
+                                                            @Override
+                                                            public void DataIsUpdated() {
+                                                                Toast.makeText(QrCode_addmachine.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                            }
+
+                                                            @Override
+                                                            public void DataIsDeleted() {
+
+                                                            }
+                                                        });
+
+                                                    }
+
+                                                     else {
+
+                                                        reference = FirebaseDatabase.getInstance().getReference("machineprofile").child(users).child("mac2");
+                                                        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                                                                    Machine_DB i = dataSnapshot.getValue(Machine_DB.class);
+                                                                    if (i.getName().equals("null")) {
+                                                                        machine_db.setMacnumber("mac2");
+                                                                        machine_db.setName(et1.getText().toString());
+                                                                        machine_db.setVolume("null");
+                                                                        machine_db.setVolume_now("null");
+                                                                        machine_db.setFood_level("null");
+                                                                        machine_db.setHistory("null");
+                                                                        machine_db.setStatus("0");
+                                                                        machine_db.setNotification("0");
+                                                                        machine_db.setTimeno("00:00");
+                                                                        machine_db.setCameralink("null");
+                                                                        machine_db.setCreatedate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+
+                                                                        reference=FirebaseDatabase.getInstance().getReference("machine2");
+                                                                        reference.child(et1.getText().toString()).child("status").setValue("use");
+                                                                        reference.child(et1.getText().toString()).child("username").setValue(users);
+
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        String settime = "settime1";
+                                                                        String volume = "0";
+                                                                        String time = "00:00";
+                                                                        String status = "0";
+                                                                        SetTime_Db setTime_db = new SetTime_Db(settime,time,volume,status);
+                                                                        reference2.child(settime).setValue(setTime_db);
+
+
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        settime = "settime2";
+                                                                        SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
+                                                                        reference2.child(settime).setValue(setTime_db2);
+
+
+
+
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        settime = "settime3";
+                                                                        SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
+                                                                        reference2.child(settime).setValue(setTime_db3);
+
+
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        settime = "settime4";
+                                                                        SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
+                                                                        reference2.child(settime).setValue(setTime_db4);
+
+
+                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac2");
+                                                                        settime = "settime5";
+                                                                        SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
+                                                                        reference2.child(settime).setValue(setTime_db5);
+
+
+                                                                        new SelectMac_Firebase().updaeBook("mac2", machine_db, new SelectMac_Firebase.DataStatus() {
+                                                                            @Override
+                                                                            public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
+
+                                                                            }
+
+                                                                            @Override
+                                                                            public void DataIsInserted() {
+
+                                                                            }
+
+                                                                            @Override
+                                                                            public void DataIsUpdated() {
+                                                                                Toast.makeText(QrCode_addmachine.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                            }
+
+                                                                            @Override
+                                                                            public void DataIsDeleted() {
+
+                                                                            }
+                                                                        });
+
+                                                                    }
+
+                                                                    else {
+
+                                                                        reference = FirebaseDatabase.getInstance().getReference("machineprofile").child(users).child("mac3");
+                                                                        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                            @Override
+                                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                                for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
+                                                                                    Machine_DB i = dataSnapshot.getValue(Machine_DB.class);
+                                                                                    if (i.getName().equals("null")) {
+                                                                                        machine_db.setMacnumber("mac3");
+                                                                                        machine_db.setName(et1.getText().toString());
+                                                                                        machine_db.setVolume("null");
+                                                                                        machine_db.setVolume_now("null");
+                                                                                        machine_db.setFood_level("null");
+                                                                                        machine_db.setHistory("null");
+                                                                                        machine_db.setStatus("0");
+                                                                                        machine_db.setNotification("0");
+                                                                                        machine_db.setTimeno("00:00");
+                                                                                        machine_db.setCameralink("null");
+                                                                                        machine_db.setCreatedate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+
+                                                                                        reference=FirebaseDatabase.getInstance().getReference("machine3");
+                                                                                        reference.child(et1.getText().toString()).child("status").setValue("use");
+                                                                                        reference.child(et1.getText().toString()).child("username").setValue(users);
+
+
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        String settime = "settime1";
+                                                                                        String volume = "0";
+                                                                                        String time = "00:00";
+                                                                                        String status = "0";
+                                                                                        SetTime_Db setTime_db = new SetTime_Db(settime,time,volume,status);
+                                                                                        reference2.child(settime).setValue(setTime_db);
+
+
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        settime = "settime2";
+                                                                                        SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
+                                                                                        reference2.child(settime).setValue(setTime_db2);
+
+
+
+
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        settime = "settime3";
+                                                                                        SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
+                                                                                        reference2.child(settime).setValue(setTime_db3);
+
+
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        settime = "settime4";
+                                                                                        SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
+                                                                                        reference2.child(settime).setValue(setTime_db4);
+
+
+                                                                                        reference2= FirebaseDatabase.getInstance().getReference("time").child("mac3");
+                                                                                        settime = "settime5";
+                                                                                        SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
+                                                                                        reference2.child(settime).setValue(setTime_db5);
+
+
+                                                                                        new SelectMac_Firebase().updaeBook("mac1", machine_db, new SelectMac_Firebase.DataStatus() {
+                                                                                            @Override
+                                                                                            public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
+
+                                                                                            }
+
+                                                                                            @Override
+                                                                                            public void DataIsInserted() {
+
+                                                                                            }
+
+                                                                                            @Override
+                                                                                            public void DataIsUpdated() {
+                                                                                                Toast.makeText(QrCode_addmachine.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                                            }
+
+                                                                                            @Override
+                                                                                            public void DataIsDeleted() {
+
+                                                                                            }
+                                                                                        });
+
+                                                                                    }
+
+                                                                                    else {
+
+
+                                                                                        Toast.makeText(QrCode_addmachine.this, "เกินขีดจำกัดที่จะเพิ่มเครื่องได้", Toast.LENGTH_LONG).show();
+
+
+                                                                                    }
+
+                                                                                }
+                                                                            }
+
+                                                                            @Override
+                                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                                            }
+                                                                        });
+
+                                                                    }
+
+                                                                }
+                                                            }
+
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                            }
+                                                        });
+
+
+                                                    }
+
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+
+
+
+
                                         reference=FirebaseDatabase.getInstance().getReference("machine2");
                                         reference.child(macname).child("status").setValue("use");
                                         reference.child(macname).child("username").setValue(users);
@@ -94,55 +393,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                        reference2= FirebaseDatabase.getInstance().getReference("machineprofile").child(users);
-                                        String name = et1.getText().toString().trim();
-                                        String volume = "null";
-                                        String volume_now = "null";
-                                        String food_level = "null";
-                                        String history = "null";
-                                        String status = "0";
-                                        String notification = "0";
-                                        String timeno ="00:00";
-                                        String cameralink ="null";
-                                        String createdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                                        Machine_DB machine_db = new Machine_DB(name,status,volume,volume_now,food_level,history,notification,timeno,createdate,cameralink);
-                                        reference2.child(name).setValue(machine_db);
 
-                                        reference3= FirebaseDatabase.getInstance().getReference("history").child(users);
-
-                                        String mac = et1.getText().toString().trim();
-                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
-                                        String settime = "settime1";
-                                        volume = "0";
-                                        String time = "00:00";
-                                        SetTime_Db setTime_db = new SetTime_Db(settime,time,volume,status);
-                                        reference2.child(settime).setValue(setTime_db);
-
-
-                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
-                                        settime = "settime2";
-                                        SetTime_Db setTime_db2 = new SetTime_Db(settime,time,volume,status);
-                                        reference2.child(settime).setValue(setTime_db2);
-
-
-
-
-                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
-                                        settime = "settime3";
-                                        SetTime_Db setTime_db3 = new SetTime_Db(settime,time,volume,status);
-                                       reference2.child(settime).setValue(setTime_db3);
-
-
-                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
-                                        settime = "settime4";
-                                        SetTime_Db setTime_db4 = new SetTime_Db(settime,time,volume,status);
-                                        reference2.child(settime).setValue(setTime_db4);
-
-
-                                        reference2= FirebaseDatabase.getInstance().getReference("time").child(mac);
-                                        settime = "settime5";
-                                        SetTime_Db setTime_db5 = new SetTime_Db(settime,time,volume,status);
-                                        reference2.child(settime).setValue(setTime_db5);
 
 
 

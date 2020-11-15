@@ -1,8 +1,5 @@
 package com.example.project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class RegisterPage extends AppCompatActivity {
-    DatabaseReference reference;
+    DatabaseReference reference,reference1;
     Button dialogbt1,dialogbt2;
     TextView dialogtv1,dialogtv2;
     Dialog dialog,dialog_1;
@@ -112,6 +112,31 @@ if (!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(password)&&!TextUtils.isEmp
     DatabaseReference dbregister = FirebaseDatabase.getInstance().getReference("user") ;
     Register_DB register1 = new Register_DB(username,password,email);
     dbregister.child(username).setValue(register1); //set name part
+
+    reference1= FirebaseDatabase.getInstance().getReference("machineprofile").child(username);
+    String macnumber = "mac1";
+    String name = "null";
+    String volume = "null";
+    String volume_now = "null";
+    String food_level = "null";
+    String history = "null";
+    String status = "0";
+    String notification = "0";
+    String timeno ="00:00";
+    String cameralink ="null";
+    String createdate = "null";
+    Machine_DB machine_db = new Machine_DB(macnumber,name,status,volume,volume_now,food_level,history,notification,timeno,createdate,cameralink);
+    reference1.child(macnumber).setValue(machine_db);
+
+    reference1= FirebaseDatabase.getInstance().getReference("machineprofile").child(username);
+    macnumber = "mac2";
+    Machine_DB machine_db1 = new Machine_DB(macnumber,name,status,volume,volume_now,food_level,history,notification,timeno,createdate,cameralink);
+    reference1.child(macnumber).setValue(machine_db1);
+
+    reference1= FirebaseDatabase.getInstance().getReference("machineprofile").child(username);
+    macnumber = "mac3";
+    Machine_DB machine_db2 = new Machine_DB(macnumber,name,status,volume,volume_now,food_level,history,notification,timeno,createdate,cameralink);
+    reference1.child(macnumber).setValue(machine_db2);
 
     reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
     String petnumber = "pet1";

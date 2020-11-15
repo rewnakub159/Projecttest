@@ -1,6 +1,7 @@
 package com.example.project;
 
 public class Machine_DB {
+    String macnumber;
     String name;
     String status;
     String volume;
@@ -15,7 +16,8 @@ public class Machine_DB {
     public Machine_DB() {
     }
 
-    public Machine_DB(String name, String status, String volume, String volume_now, String food_level, String history, String notification, String timeno, String createdate, String cameralink) {
+    public Machine_DB(String macnumber, String name, String status, String volume, String volume_now, String food_level, String history, String notification, String timeno, String createdate, String cameralink) {
+        this.macnumber = macnumber;
         this.name = name;
         this.status = status;
         this.volume = volume;
@@ -26,6 +28,14 @@ public class Machine_DB {
         this.timeno = timeno;
         this.createdate = createdate;
         this.cameralink = cameralink;
+    }
+
+    public String getMacnumber() {
+        return macnumber;
+    }
+
+    public void setMacnumber(String macnumber) {
+        this.macnumber = macnumber;
     }
 
     public String getName() {
