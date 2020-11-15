@@ -1,28 +1,33 @@
 package com.example.project;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
 
 public class Machine_profile extends AppCompatActivity {
 
     Home_Menu homeMenu = new Home_Menu();
     String users = homeMenu.user.toString();
 
+    final Machine_DB machine_db = new Machine_DB();
+
     String macname;
     String volume_now;
     String food_level;
     String timeno;
     String createdate;
+    String macnumber;
 
     TextView tv1,tv2,tv3,tv4,tv5;
 
@@ -35,6 +40,7 @@ public class Machine_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.machine_profile);
 
+        macnumber = getIntent().getStringExtra("macnumber");
         macname = getIntent().getStringExtra("macname");
         volume_now = getIntent().getStringExtra("volume_now");
         food_level = getIntent().getStringExtra("food_level");
@@ -72,15 +78,41 @@ public class Machine_profile extends AppCompatActivity {
                 builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        reference = FirebaseDatabase.getInstance().getReference().child("machineprofile").child(users).child(macname);
-                        reference.removeValue();
 
-                        reference=FirebaseDatabase.getInstance().getReference("machine2");
-                        reference.child(macname).child("status").setValue("not");
-                        reference.child(macname).child("username").setValue("null");
+                        machine_db.setMacnumber(macnumber);
+                        machine_db.setName("null");
+                        machine_db.setVolume("null");
+                        machine_db.setVolume_now("null");
+                        machine_db.setFood_level("null");
+                        machine_db.setHistory("null");
+                        machine_db.setStatus("0");
+                        machine_db.setNotification("0");
+                        machine_db.setTimeno("00:00");
+                        machine_db.setCameralink("null");
+                        machine_db.setCreatedate("null");
+                        new SelectMac_Firebase().updaeBook("mac1", machine_db, new SelectMac_Firebase.DataStatus() {
+                            @Override
+                            public void DataIsLoaded(List<Machine_DB> books, List<String> keys) {
 
-                        reference = FirebaseDatabase.getInstance().getReference().child("time").child(macname);
-                        reference.removeValue();
+                            }
+
+                            @Override
+                            public void DataIsInserted() {
+
+                            }
+
+                            @Override
+                            public void DataIsUpdated() {
+                                Toast.makeText(Machine_profile.this, "update successfully", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void DataIsDeleted() {
+
+                            }
+                        });
+
+
                         finish();
                     }
                 });

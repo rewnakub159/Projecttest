@@ -42,7 +42,9 @@ public class Machine_Profile_Firebase {
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
                     Machine_DB i = keyNode.getValue(Machine_DB.class);
-                    books.add(i);
+                    if (i.getName().equals("null")){
+                    }else { books.add(i);
+                    }
                 }
                 dataStatus.DataIsLoaded(books ,keys);          }
 

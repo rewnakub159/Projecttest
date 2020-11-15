@@ -31,6 +31,7 @@ public class Machine_Profile_con {
         private String key;
         private String timeno;
         private String createdate;
+        private String macnumber;
 
 
 
@@ -46,6 +47,7 @@ public class Machine_Profile_con {
 
                     Intent intent = new Intent(mContext,Machine_profile.class);
                     intent.putExtra("macname",mName.getText().toString());
+                    intent.putExtra("macnumber",macnumber);
                     intent.putExtra("volume_now",volume_now.getText().toString());
                     intent.putExtra("food_level",food_level.getText().toString());
                     intent.putExtra("timeno",timeno);
@@ -61,6 +63,7 @@ public class Machine_Profile_con {
             food_level.setText(book.getFood_level());
             timeno = book.getTimeno();
             createdate = book.getCreatedate();
+            macnumber = book.getMacnumber();
             this.key = key;
 
         }
