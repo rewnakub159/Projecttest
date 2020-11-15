@@ -1,12 +1,12 @@
 package com.example.project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,11 +14,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Feeding_now extends AppCompatActivity {
     private DatabaseReference reference;
 
-    SelectMac_feedNow_Con selectMac_reCon =new SelectMac_feedNow_Con();
-    String macname = SelectMac_feedNow_Con.macname.toString();
+    //SelectMac_feedNow_Con selectMac_reCon =new SelectMac_feedNow_Con();
+   // String macname = SelectMac_feedNow_Con.macname.toString();
     Home_Menu loginPage1 = new Home_Menu();
     String users = loginPage1.user.toString();
-    String key;
+    String key,macname,macnumber;
 
 
 
@@ -26,6 +26,9 @@ public class Feeding_now extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feeding_now);
+
+        macnumber= getIntent().getStringExtra("macnumber");
+        macname = getIntent().getStringExtra("name");
 
 
         final EditText editText =(EditText)findViewById(R.id.et1);
@@ -40,8 +43,8 @@ public class Feeding_now extends AppCompatActivity {
                int s;
                s = Integer.parseInt(editText.getText().toString());
                if (s >= 100) {
-                   reference.child(macname).child("volume").setValue(editText.getText().toString());
-                   reference.child(macname).child("status").setValue("1");
+                   reference.child(macnumber).child("volume").setValue(editText.getText().toString());
+                   reference.child(macnumber).child("status").setValue("1");
                    finish();
                }else{
                    Toast.makeText(Feeding_now.this, "ปริมาณอาหารน้อยกว่า 100 กรัม", Toast.LENGTH_LONG).show();}

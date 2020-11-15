@@ -30,6 +30,7 @@ public class SelectMac_feedNow_Con {
         private TextView mvolume;
         private TextView mlevel;
         private String key;
+        private String macnumber;
 
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
@@ -44,6 +45,8 @@ public class SelectMac_feedNow_Con {
                     Intent intent = new Intent(mContext, Feeding_now.class);
                     macname = mName.getText().toString();
                     intent.putExtra("key",key);
+                    intent.putExtra("name",mName.getText().toString());
+                    intent.putExtra("macnumber",macnumber);
                     mContext.startActivity(intent);
 
                 }
@@ -53,6 +56,7 @@ public class SelectMac_feedNow_Con {
             mName.setText(book.getName());
             mvolume.setText(book.getVolume_now());
             mlevel.setText(book.getFood_level());
+            macnumber = book.getMacnumber();
             this.key = key;
         }
     }
