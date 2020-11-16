@@ -1,8 +1,5 @@
 package com.example.project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -14,6 +11,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
     private DatabaseReference reference;
     TextView tv1,tv2;
     EditText et1;
-    Button bt1, bt2;
+    Button bt1, bt2,bt3;
     String time, volume;
     final SetTime_Db setTime_db = new SetTime_Db();
     private DatePickerDialog.OnDateSetListener dateSetListener;
@@ -48,9 +47,19 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
         tv1 = (TextView) findViewById(R.id.addsettime_tv1);
         tv2 = (TextView) findViewById(R.id.textView20);
+
         et1 = (EditText) findViewById(R.id.addsetime_et1);
         bt1 = (Button) findViewById(R.id.addsettime_bt1);
         bt2 = (Button) findViewById(R.id.addsettime_bt4);
+        bt3 = (Button) findViewById(R.id.addsettime_bt);
+
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +154,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                         @Override
                                         public void DataIsUpdated() {
-                                            Toast.makeText(AddSetTime.this, "update successfully", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(AddSetTime.this, "เพิ่มเวลาสำเร็จ", Toast.LENGTH_LONG).show();
                                         }
 
                                         @Override
@@ -153,7 +162,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                         }
                                     });
-                                    Toast.makeText(AddSetTime.this, "11111", Toast.LENGTH_LONG).show();
+
 
 
 
@@ -182,7 +191,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                         @Override
                                                         public void DataIsUpdated() {
-                                                            Toast.makeText(AddSetTime.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(AddSetTime.this, "เพิ่มเวลาสำเร็จ", Toast.LENGTH_LONG).show();
                                                         }
 
                                                         @Override
@@ -190,7 +199,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                         }
                                                     });
-                                                    Toast.makeText(AddSetTime.this, "222222", Toast.LENGTH_LONG).show();
+
 
 
                                                 }else {reference = FirebaseDatabase.getInstance().getReference("time").child(macname).child("settime3");
@@ -218,7 +227,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                                         @Override
                                                                         public void DataIsUpdated() {
-                                                                            Toast.makeText(AddSetTime.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                            Toast.makeText(AddSetTime.this, "เพิ่มเวลาสำเร็จ", Toast.LENGTH_LONG).show();
                                                                         }
 
                                                                         @Override
@@ -226,7 +235,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                                         }
                                                                     });
-                                                                    Toast.makeText(AddSetTime.this, "3333", Toast.LENGTH_LONG).show();
+
 
 
                                                                 }else {reference = FirebaseDatabase.getInstance().getReference("time").child(macname).child("settime4");
@@ -254,7 +263,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                                                         @Override
                                                                                         public void DataIsUpdated() {
-                                                                                            Toast.makeText(AddSetTime.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                                            Toast.makeText(AddSetTime.this, "เพิ่มเวลาสำเร็จ", Toast.LENGTH_LONG).show();
                                                                                         }
 
                                                                                         @Override
@@ -262,7 +271,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                                                         }
                                                                                     });
-                                                                                    Toast.makeText(AddSetTime.this, "4444", Toast.LENGTH_LONG).show();
+
 
 
                                                                                 }else {reference = FirebaseDatabase.getInstance().getReference("time").child(macname).child("settime5");
@@ -290,7 +299,7 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                                                                         @Override
                                                                                                         public void DataIsUpdated() {
-                                                                                                            Toast.makeText(AddSetTime.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                                                            Toast.makeText(AddSetTime.this, "เพิ่มเวลาสำเร็จ", Toast.LENGTH_LONG).show();
                                                                                                         }
 
                                                                                                         @Override
@@ -298,9 +307,6 @@ public class AddSetTime extends AppCompatActivity implements   TimePickerDialog.
 
                                                                                                         }
                                                                                                     });
-                                                                                                    Toast.makeText(AddSetTime.this, "5555", Toast.LENGTH_LONG).show();
-
-
                                                                                                 }else {Toast.makeText(AddSetTime.this, "ครบจำนวนที่จะสร้างได้", Toast.LENGTH_LONG).show();}
                                                                                             }
                                                                                         }

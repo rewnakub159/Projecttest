@@ -21,14 +21,28 @@
     <View
         android:id="@+id/view4"
         android:layout_width="348dp"
-        android:layout_height="486dp"
+        android:layout_height="556dp"
         android:background="@drawable/settime_center1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.487" />
+        app:layout_constraintVertical_bias="0.471" />
+
+    <Button
+        android:id="@+id/addsettime_bt"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button"
+        android:text="ย้อนกลับ"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addsetime_et1"
+        app:layout_constraintVertical_bias="0.655" />
 
     <View
         android:id="@+id/view3"
@@ -123,16 +137,15 @@
         android:id="@+id/addsettime_bt4"
         android:layout_width="119dp"
         android:layout_height="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button"
         android:text="บันทึก"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addsetime_et1"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/addsettime_tv"
@@ -170,6 +183,7 @@
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:srcCompat="@drawable/ic_food" />
 
     <TextView
@@ -177,6 +191,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:visibility="invisible"
         tools:layout_editor_absoluteX="129dp"
         tools:layout_editor_absoluteY="225dp" />
 

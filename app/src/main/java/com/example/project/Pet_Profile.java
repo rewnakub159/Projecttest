@@ -1,9 +1,5 @@
 package com.example.project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,8 +22,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 public class Pet_Profile extends AppCompatActivity {
+
+
+
+
     Home_Menu homeMenu = new Home_Menu();
     String users = homeMenu.user.toString();
+
     DatabaseReference reference;
     TextView tvpetname;
     TextView tvbreed;
@@ -41,7 +46,7 @@ public class Pet_Profile extends AppCompatActivity {
     String id;
     String tagstatus;
     Button bt1;
-    ImageButton imb1,imb2,imb3;
+    ImageButton imb1,imb2,imb3,imb4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +72,7 @@ public class Pet_Profile extends AppCompatActivity {
         imb1 =(ImageButton)findViewById(R.id.imageButton1);
         imb2 =(ImageButton)findViewById(R.id.imageButton2);
         imb3 =(ImageButton)findViewById(R.id.imageButton3);
+        imb4 =(ImageButton)findViewById(R.id.imageButton4);
 
 
 
@@ -126,7 +132,7 @@ public class Pet_Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Pet_Profile.this,PetTag.class);
+                Intent intent = new Intent(Pet_Profile.this,SelectMac_Tag.class);
                 intent.putExtra("petnumber",petnumber);
                 intent.putExtra("petname",petname);
                 startActivity(intent);
@@ -181,6 +187,16 @@ public class Pet_Profile extends AppCompatActivity {
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+            }
+        });
+
+        imb4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Pet_Profile.this,Selectmac_Weigth.class);
+                intent.putExtra("petnumber",petnumber);
+                intent.putExtra("petname",petname);
+                startActivity(intent);
             }
         });
             }

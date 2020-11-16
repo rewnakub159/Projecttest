@@ -163,7 +163,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
                                                             @Override
                                                             public void DataIsUpdated() {
-                                                                Toast.makeText(QrCode_addmachine.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                Toast.makeText(QrCode_addmachine.this, "uเพิ่มเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
                                                             }
 
                                                             @Override
@@ -247,7 +247,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
                                                                             @Override
                                                                             public void DataIsUpdated() {
-                                                                                Toast.makeText(QrCode_addmachine.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                                Toast.makeText(QrCode_addmachine.this, "เพิ่มเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
                                                                             }
 
                                                                             @Override
@@ -332,7 +332,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
                                                                                             @Override
                                                                                             public void DataIsUpdated() {
-                                                                                                Toast.makeText(QrCode_addmachine.this, "update successfully", Toast.LENGTH_LONG).show();
+                                                                                                Toast.makeText(QrCode_addmachine.this, "เพิ่มเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
                                                                                             }
 
                                                                                             @Override
@@ -399,7 +399,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
 
 
-                                        Toast.makeText(QrCode_addmachine.this, "เพิ่มเครื่องให้อาหารสำเร็จ", Toast.LENGTH_LONG).show();
+
 
                                     }
                                 }
@@ -443,7 +443,7 @@ public class QrCode_addmachine extends AppCompatActivity {
 
             if(result.getContents()== null){
 
-                Toast.makeText(this, "You cancell scanning", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "คุณได้ยกเลิกการแสกน", Toast.LENGTH_LONG).show();
 
             }
 

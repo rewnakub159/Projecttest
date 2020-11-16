@@ -26,22 +26,31 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PetTag extends AppCompatActivity {
 
+    Pet_RecycleView_Config pet_RecycleView_Config = new Pet_RecycleView_Config();
+    String petnumber = pet_RecycleView_Config.petnumbers.toString();
+
     Home_Menu homeMenu = new Home_Menu();
     String users = homeMenu.user.toString();
 
     Dialog dialog;
     DatabaseReference reference;
     Task<Void> reference2;
-    TextView tv1,tv2,tv3,dialogtv1;
-    String petnumber,petname;
+    TextView tv1,tv2,tv3,dialogtv1,tv4;
     ImageButton imb1,imb2;
-    Button dialogbt1;
+    Button dialogbt1,bt3;
+    String mName;
+
+
+
 
     String tagstatus,id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_tag);
+
+
+        mName= getIntent().getStringExtra("name");
 
         dialog = new Dialog(this);
 
@@ -51,17 +60,29 @@ public class PetTag extends AppCompatActivity {
         tv1 = (TextView)findViewById(R.id.tv1);
         tv2 = (TextView)findViewById(R.id.tv2);
         tv3 = (TextView)findViewById(R.id.tv3);
+        tv4 = (TextView)findViewById(R.id.tv);
 
-        petnumber = getIntent().getStringExtra("petnumber");
-        petname = getIntent().getStringExtra("petname");
+        bt3 = (Button)findViewById(R.id.bt3);
 
-        tv1.setText(petname);
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
+        //petnumber = getIntent().getStringExtra("petnumber");
+        //petname = getIntent().getStringExtra("petname");
+
+
+        tv4.setText(mName);
         reference= FirebaseDatabase.getInstance().getReference("pet").child(users).child(petnumber);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Pet_DB i = dataSnapshot.getValue(Pet_DB.class);
+                String petname = i.getPetname();
+                tv1.setText(petname);
                 tagstatus = i.getTagstatus();
                 id = i.getId();
                 tv2.setText(id);
@@ -106,15 +127,15 @@ public class PetTag extends AppCompatActivity {
 
                             switch (petnumber){
                                 case "pet1":
-                                    reference2 = FirebaseDatabase.getInstance().getReference("pet").child("menu").child("fd001").child("rfidStatus").setValue("1");
+                                    reference2 = FirebaseDatabase.getInstance().getReference("pet").child("menu").child(mName).child("rfidStatus").setValue("1");
                                     reference2= FirebaseDatabase.getInstance().getReference("pet").child(users).child(petnumber).child("tagstatus").setValue("2");
                                     break;
                                 case "pet2":
-                                    reference2 = FirebaseDatabase.getInstance().getReference("pet").child("menu").child("fd001").child("rfidStatus").setValue("2");
+                                    reference2 = FirebaseDatabase.getInstance().getReference("pet").child("menu").child(mName).child("rfidStatus").setValue("2");
                                     reference2= FirebaseDatabase.getInstance().getReference("pet").child(users).child(petnumber).child("tagstatus").setValue("2");
                                     break;
                                 case "pet3":
-                                    reference2 = FirebaseDatabase.getInstance().getReference("pet").child("menu").child("fd001").child("rfidStatus").setValue("3");
+                                    reference2 = FirebaseDatabase.getInstance().getReference("pet").child("menu").child(mName).child("rfidStatus").setValue("3");
                                     reference2= FirebaseDatabase.getInstance().getReference("pet").child(users).child(petnumber).child("tagstatus").setValue("2");
                                     break;
                             }
@@ -174,9 +195,7 @@ public class PetTag extends AppCompatActivity {
         imb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tv3.getText() == "รอการยืนยัน"){ Toast.makeText(PetTag.this,"กรุณารอการยืนยันจากเครื่อง",Toast.LENGTH_LONG).show();
 
-                }else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                     builder.setTitle("ลบ Tag");
                     builder.setMessage("คุณต้องการลบ TAG ใช่หรือไม่");
@@ -197,7 +216,6 @@ public class PetTag extends AppCompatActivity {
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
                 }
-                    }
                 });
 
 

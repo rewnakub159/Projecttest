@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class Pet_RecycleView_Config {
+
+    public static String petnumbers;
+
     private Context mContext;
     private  BooksAdapter mBookAdapter;
     public void setConfig(RecyclerView recyclerView, Context context, List<Pet_DB> books, List<String> keys){
@@ -58,11 +61,13 @@ public class Pet_RecycleView_Config {
         }
         public  void bind(Pet_DB book , String key){
             petnumber = book.getPetnumber();
+            petnumbers = book.getPetnumber();
             petname.setText(book.getPetname());
             type.setText(book.getType());
             breed.setText(book.getBreed());
             gender.setText(book.getGender());
             weight = book.getWeight();
+
             age = book.getAge();
             this.key = key;
 

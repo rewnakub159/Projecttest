@@ -47,6 +47,7 @@ public class Camera extends AppCompatActivity {
                     NotificationManager.IMPORTANCE_LOW
             );
             channel2.setDescription("This is Channel 2");
+
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel1);
             manager.createNotificationChannel(channel2);

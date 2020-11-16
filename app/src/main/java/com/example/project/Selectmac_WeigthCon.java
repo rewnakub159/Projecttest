@@ -2,7 +2,6 @@ package com.example.project;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class SelectMac_cameraCon {
-
+public class Selectmac_WeigthCon {
     private Context mContext;
-    private SelectMac_cameraCon.BooksAdapter mBookAdapter;
+    private Selectmac_WeigthCon.BooksAdapter mBookAdapter;
     TextView tv1;
     public static String macname;
     public void setConfig(RecyclerView recyclerView, Context context, List<Machine_DB> books, List<String> keys){
         mContext = context;
-        mBookAdapter = new SelectMac_cameraCon.BooksAdapter(books,keys);
+        mBookAdapter = new Selectmac_WeigthCon.BooksAdapter(books,keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(mBookAdapter);
     }
@@ -31,7 +29,7 @@ public class SelectMac_cameraCon {
         private TextView mPass;
         private TextView mEmail;
 
-        private String key;
+        private String key,macnumber;
         String camera;
         public BookItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.selectmac_layout,parent,false));
@@ -41,7 +39,12 @@ public class SelectMac_cameraCon {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        clicked_link(camera);
+                    Intent intent = new Intent(mContext, PetWeigth.class);
+                    macname = mName.getText().toString();
+                    intent.putExtra("key",key);
+                    intent.putExtra("name",mName.getText().toString());
+                    intent.putExtra("macnumber",macnumber);
+                    mContext.startActivity(intent);
                 }
             });
         }
@@ -50,11 +53,12 @@ public class SelectMac_cameraCon {
             mPass.setText(book.getVolume());
             mEmail.setText(book.getFood_level());
             camera = book.getCameralink();
+            macnumber = book.getMacnumber();
             this.key = key;
 
         }
     }
-    class BooksAdapter extends RecyclerView.Adapter<SelectMac_cameraCon.BookItemView>{
+    class BooksAdapter extends RecyclerView.Adapter<Selectmac_WeigthCon.BookItemView>{
         private List<Machine_DB>mBookList;
         private List<String> mKeys;
 
@@ -65,12 +69,12 @@ public class SelectMac_cameraCon {
 
         @NonNull
         @Override
-        public SelectMac_cameraCon.BookItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new SelectMac_cameraCon.BookItemView(parent);
+        public Selectmac_WeigthCon.BookItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new Selectmac_WeigthCon.BookItemView(parent);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull SelectMac_cameraCon.BookItemView holder, int position) {
+        public void onBindViewHolder(@NonNull Selectmac_WeigthCon.BookItemView holder, int position) {
             holder.bind(mBookList.get(position),mKeys.get(position));
         }
 
@@ -79,9 +83,5 @@ public class SelectMac_cameraCon {
             return mBookList.size();
         }
     }
-    public void clicked_link(String url){
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        mContext.startActivity(intent);
-    }
+
 }

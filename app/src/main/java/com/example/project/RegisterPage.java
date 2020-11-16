@@ -148,17 +148,18 @@ if (!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(password)&&!TextUtils.isEmp
     String weight = "null";
     String id = "0";
     String tagstatus = "0";
-    Pet_DB pet_db1 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight,id,tagstatus);
+    String weightstatus = "0";
+    Pet_DB pet_db1 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight,id,tagstatus,weightstatus);
     reference.child(petnumber).setValue(pet_db1);
 
     reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
     petnumber = "pet2";
-    Pet_DB pet_db2 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight,id,tagstatus);
+    Pet_DB pet_db2 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight,id,tagstatus,weightstatus);
     reference.child(petnumber).setValue(pet_db2);
 
     reference= FirebaseDatabase.getInstance().getReference("pet").child(username);
     petnumber = "pet3";
-    Pet_DB pet_db3 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight,id,tagstatus);
+    Pet_DB pet_db3 = new Pet_DB(petnumber,petname,gender,type,breed,age,weight,id,tagstatus,weightstatus);
     reference.child(petnumber).setValue(pet_db3);
     dialog1();
 

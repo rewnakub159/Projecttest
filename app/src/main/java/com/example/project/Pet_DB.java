@@ -10,11 +10,12 @@ public class Pet_DB {
     String age;
     String id;
     String tagstatus;
+    String weightstatus;
 
     public Pet_DB() {
     }
 
-    public Pet_DB(String petnumber, String petname, String breed, String gender, String weight, String type, String age, String id, String tagstatus) {
+    public Pet_DB(String petnumber, String petname, String breed, String gender, String weight, String type, String age, String id, String tagstatus, String weightstatus) {
         this.petnumber = petnumber;
         this.petname = petname;
         this.breed = breed;
@@ -24,6 +25,7 @@ public class Pet_DB {
         this.age = age;
         this.id = id;
         this.tagstatus = tagstatus;
+        this.weightstatus = weightstatus;
     }
 
     public String getPetnumber() {
@@ -96,6 +98,14 @@ public class Pet_DB {
 
     public void setTagstatus(String tagstatus) {
         this.tagstatus = tagstatus;
+    }
+
+    public String getWeightstatus() {
+        return weightstatus;
+    }
+
+    public void setWeightstatus(String weightstatus) {
+        this.weightstatus = weightstatus;
     }
 }
 
