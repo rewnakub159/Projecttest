@@ -194,12 +194,11 @@
         android:id="@+id/et3"
         android:layout_width="100dp"
         android:layout_height="45dp"
-
-
+        android:inputType="numberDecimal"
+        android:maxLength="3"
         android:layout_marginTop="16dp"
         android:background="@drawable/register_edittext"
         android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
@@ -211,12 +210,11 @@
         android:id="@+id/et4"
         android:layout_width="100dp"
         android:layout_height="45dp"
-
-
+        android:inputType="numberDecimal"
+        android:maxLength="3"
         android:layout_marginTop="16dp"
         android:background="@drawable/register_edittext"
         android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.921"

@@ -77,7 +77,7 @@ public class PetWeigth extends AppCompatActivity {
                         tv3.setText("ชั้งแล้ว");
                         break;
                     case "1":
-                        tv3.setText("กรุณานำสัตว์เลี้ยงชั่งน้ำหนัก");
+                        tv3.setText("กำลังชั่งน้ำหนัก");
                         break;
                 }
 

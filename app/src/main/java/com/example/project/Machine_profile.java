@@ -18,6 +18,7 @@ import java.util.List;
 
 public class Machine_profile extends AppCompatActivity {
 
+    public static String mac;
     final Machine_DB machine_db = new Machine_DB();
 
     Home_Menu homeMenu = new Home_Menu();
@@ -59,6 +60,8 @@ public class Machine_profile extends AppCompatActivity {
         tv3.setText(food_level);
         tv4.setText(createdate);
         tv5.setText(timeno);
+
+        mac = tv1.getText().toString();
 
         bt1 = (Button)findViewById(R.id.dibt1);
 

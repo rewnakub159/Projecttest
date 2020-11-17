@@ -141,15 +141,15 @@
 
         <TextView
             android:id="@+id/tv3"
-            android:layout_width="255dp"
-            android:layout_height="31dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="142dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="40dp"
             android:text="TextView"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView48"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView48"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tv2"
